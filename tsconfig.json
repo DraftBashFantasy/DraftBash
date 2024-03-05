@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "outDir": "dist",
+        "jsx": "react-jsx"
+    },
+    "include": ["packages/business/**/*.ts", "packages/infrastructure/**/*.ts",
+    "packages/contracts/**/*.ts", "packages/server/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
+}

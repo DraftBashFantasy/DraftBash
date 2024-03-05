@@ -1,0 +1,21 @@
+PUT http://localhost:3000/api/v1/mock-drafts/14
+Content-Type: application/json
+
+{
+    "invitedUserIds": [],
+    "draftSettings": {
+        "orderType": "linear",
+        "scoringType": "category",
+        "pickTimeSeconds": 30,
+        "teamCount": 8,
+        "pointguardSlots": 1,
+        "shootingguardSlots": 1,
+        "guardSlots": 1,
+        "smallforwardSlots": 1,
+        "powerforwardSlots": 1,
+        "forwardSlots": 1,
+        "centerSlots": 1,
+        "utilitySlots": 3,
+        "benchSlots": 3
+    }
+}

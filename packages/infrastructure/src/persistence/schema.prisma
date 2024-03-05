@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  user_id                  Int        @id @default(autoincrement())
+  username                String     @unique
+  password                String
+  email                   String     @unique
+  drafts                  drafts[]
+  draft_users             draft_users[]
+  draft_orders            draft_orders[]
+  draft_invites           draft_invites[]
+}
+
+model draft_users {
+  user_id         Int
+  draft_id        Int
+  is_autodraft_on Boolean     @default(false)
+  
+  user            users       @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+  draft           drafts      @relation(fields: [draft_id], references: [draft_id], onDelete: Cascade)
+
+  @@id([user_id, draft_id])
+}
+
+model drafts {
+  draft_id              Int        @id @default(autoincrement())
+  order_type            String
+  scoring_type          String
+  pick_time_seconds     Int?
+  team_count            Int
+  pointguard_slots      Int
+  shootingguard_slots   Int
+  guard_slots           Int
+  smallforward_slots    Int
+  powerforward_slots    Int
+  forward_slots         Int
+  center_slots          Int
+  utility_slots         Int
+  bench_slots           Int
+  scheduled_by_user_id  Int?
+  scheduledByUser       users?     @relation(fields: [scheduled_by_user_id], references: [user_id], onDelete: SetNull)
+  draft_users           draft_users[]
+  draft_orders          draft_orders[]
+  draft_invites         draft_invites[]
+}
+
+model draft_orders {
+  draft_order_id         Int        @id @default(autoincrement())
+  user_id                Int?       
+  draft_id               Int
+  team_number            Int
+  pick_number            Int
+
+  user                   users?     @relation(fields: [user_id], references: [user_id], onDelete: SetNull)
+  draft                  drafts     @relation(fields: [draft_id], references: [draft_id], onDelete: Cascade)
+}
+
+model draft_invites {
+  invite_id              Int        @id @default(autoincrement())
+  draft_id               Int       
+  user_id                Int
+  creation_timestamp     DateTime   @default(now())
+
+  user                   users     @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+  draft                  drafts     @relation(fields: [draft_id], references: [draft_id], onDelete: Cascade)
+}

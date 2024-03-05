@@ -1,0 +1,2 @@
+GET http://localhost:3000/api/v1/users/authentication-tokens
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoic3RldmVmIiwiZW1haWwiOiJmZWRkZXNzdGV2ZUBnbWFpbC5jb20iLCJpYXQiOjE3MDU4NzY1MjgsImV4cCI6MTcwNTg4MzcyOH0.DLN0UjL1J-vv8Ck5NqInehdUS-n1sXySO8vCcQf3jVo

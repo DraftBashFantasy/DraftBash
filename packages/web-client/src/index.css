@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --indigo: rgb(50, 25, 125);
+    --dullIndigo: rgb(130, 110, 220);
+    --darkGrey: rgb(25, 25, 40);
+    --transparentGrey: rgba(100, 100, 100, 0.3);
+    --mediumGrey: rgb(120, 110, 135);
+    --lightGrey: rgb(204, 204, 221);
+    --silver: rgb(240, 240, 250);
+    --lightGreen: rgb(210, 235, 225);
+    --gold: rgb(225, 150, 25);
+    --mediumGold: rgb(221, 191, 132);
+    --blue: rgb(20, 135, 225);
+    --brightBlue: rgb(200, 240, 255);
+    --grey: rgb(230, 230, 250);
+    --darkGreen: rgb(75, 100, 50);
+    --brightGreen: rgb(20, 220, 100);
+    --darkGold: rgb(147, 98, 49);
+}
+
+*{
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    list-style-type:none;
+    border-spacing: 0px;
+    font-size: 16px;
+    user-select: none;
+    outline: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
