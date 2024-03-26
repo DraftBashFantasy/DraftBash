@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext } from 'react';
-import { UserResponse } from '../../../../../contracts';
+import { UserResponse } from '@draftbash/contracts';
 
 export interface AuthContextProps {
     isAuthenticated: boolean;

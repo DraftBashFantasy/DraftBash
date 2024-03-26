@@ -38,7 +38,7 @@ export const useSignup = () => {
                     validateJwtToken(data.jwtToken);
                     navigate('/');
                 }
-            } catch (error) {
+            } catch (error: any) {
                 setSignupError(error.message);
             }
         }

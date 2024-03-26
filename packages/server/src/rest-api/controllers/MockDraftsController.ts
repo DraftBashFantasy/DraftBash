@@ -34,8 +34,7 @@ export class MockDraftsController {
     public async createMockDraft(req: Request, res: Response) {
         try {
             const createMockDraftRequest: CreateMockDraftRequest = req.body;
-            const createdDraftId: number =
-                await this.createMockDraftsUseCase.createMockDraft(createMockDraftRequest);
+            const createdDraftId: number = await this.createMockDraftsUseCase.createMockDraft(createMockDraftRequest);
             res.status(201).send({ draftId: createdDraftId });
         } catch (error: unknown) {
             if (error instanceof BadRequestError) {

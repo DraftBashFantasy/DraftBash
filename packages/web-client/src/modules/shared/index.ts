@@ -1,9 +1,9 @@
-export { RoundedButton } from './components/buttons/RoundedButton';
-export { PageFrame } from './layout/PageFrame';
-export { PasswordInput } from './components/text-input/PasswordInput';
-export { TextInput } from './components/text-input/TextInput';
+export { RoundedButton } from './normal-screen/components/buttons/RoundedButton';
+export { PageFrame } from './normal-screen/layout/PageFrame';
+export { PasswordInput } from './normal-screen/components/text-input/PasswordInput';
+export { TextInput } from './normal-screen/components/text-input/TextInput';
 export { useJwtTokenValidator } from './hooks/useJwtValidator';
-export { PageLayout } from './layout/PageLayout';
-export { Navbar } from './features/Navbar';
+export { PageLayout } from './normal-screen/layout/PageLayout';
+export { Navbar } from './normal-screen/features/Navbar';
 export { AuthProvider } from './services/AuthProvider';
 export { useAuth } from './hooks/useAuth';

@@ -1,0 +1,1 @@
+export { HomePageMobile } from './mobile-screen/HomePageMobile';

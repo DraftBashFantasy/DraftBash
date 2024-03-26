@@ -4,9 +4,10 @@
     --indigo: rgb(50, 25, 125);
     --dullIndigo: rgb(130, 110, 220);
     --darkGrey: rgb(25, 25, 40);
-    --transparentGrey: rgba(100, 100, 100, 0.3);
-    --mediumGrey: rgb(120, 110, 135);
-    --lightGrey: rgb(204, 204, 221);
+    --transparentBlue: rgba(30, 15, 75, 0.5);
+    --brightBlack: rgb(30, 15, 75);
+    --mediumGrey: rgb(150, 145, 175);
+    --lightGrey: rgb(200, 200, 225);
     --silver: rgb(240, 240, 250);
     --lightGreen: rgb(210, 235, 225);
     --gold: rgb(225, 150, 25);

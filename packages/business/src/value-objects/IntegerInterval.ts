@@ -28,4 +28,12 @@ export class IntegerInterval {
     getValue(): number {
         return this.value;
     }
+
+    getLowerBound(): number {
+        return this.lowerBound;
+    }
+
+    getUpperBound(): number {
+        return this.upperBound;
+    }
 }
