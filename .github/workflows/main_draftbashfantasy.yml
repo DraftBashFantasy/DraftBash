@@ -23,6 +23,7 @@ jobs:
 
       - name: yarn install, build, and test
         run: |
+          npm install -g typescript
           yarn install
           yarn build
       
