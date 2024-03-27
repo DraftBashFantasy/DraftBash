@@ -2,6 +2,7 @@
     "name": "@draftbash/contracts",
     "version": "1.0.0",
     "main": "index.js",
+    "private": true,
     "scripts": {
         "build": "npx tsc"
     },

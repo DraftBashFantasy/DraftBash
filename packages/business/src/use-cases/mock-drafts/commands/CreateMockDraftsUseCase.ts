@@ -1,4 +1,4 @@
-import { CreateMockDraftRequest, ICreateMockDraftsUseCase } from '@draftbash/contracts';
+import { CreateMockDraftRequest, ICreateMockDraftsUseCase } from '../../../../../contracts'
 import { IDraftUsersRepository, IMockDraftsRepository } from '../../../persistence';
 import { DraftOrderGeneratorFactory } from '../../../services';
 import { DraftSettings, MockDraft } from '../../../value-objects';

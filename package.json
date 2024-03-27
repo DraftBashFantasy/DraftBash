@@ -1,6 +1,7 @@
 {
     "name": "draftbash",
     "private": true,
+    "version": "1.0.0",
     "workspaces": [
         "packages/*"
     ],
@@ -14,6 +15,11 @@
         "start": "node dist/server/src/app.js"
     },
     "dependencies": {
+        "@draftbash/business": "file:./packages/business",
+        "@draftbash/contracts": "file:./packages/contracts",
+        "@draftbash/infrastructure": "file:./packages/infrastructure",
+        "@draftbash/server": "file:./packages/server",
+        "@draftbash/web-client": "file:./packages/web-client",
         "@types/node": "^20.11.13",
         "concurrently": "^8.2.2",
         "dotenv": "^16.4.2",

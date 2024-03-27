@@ -2,7 +2,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '../modules/shared';
-import { PageLayout } from '../modules/shared';
 
 interface ProtectedRouteProps {
     path: string;

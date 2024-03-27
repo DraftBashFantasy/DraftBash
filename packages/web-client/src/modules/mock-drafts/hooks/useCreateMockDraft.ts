@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { MockDraft } from '../../../../../business/src/value-objects';
-import { CreateMockDraftRequest } from '@draftbash/contracts';
+import { CreateMockDraftRequest } from '../../../../../contracts';
 import { DraftSettings } from '../../../../../business/src/value-objects';
 
 export const useCreateMockDraft = () => {
