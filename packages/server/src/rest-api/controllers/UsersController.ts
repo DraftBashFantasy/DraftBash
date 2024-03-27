@@ -8,14 +8,14 @@ import {
     CreateUserRequest,
     UserResponse,
     MockDraftResponse,
-} from '../../../../contracts';
+} from '@draftbash/contracts';
 import {
     UserAlreadyExistsError,
     BadRequestError,
     UserNotFoundByUsernameError,
     InvalidJwtTokenError,
     InvalidUserCredentialsError,
-} from '../../../../business';
+} from '@draftbash/business';
 
 export class UsersController {
     private readonly createUsersUsecase: ICreateUsersUseCase;

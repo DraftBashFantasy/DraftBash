@@ -12,6 +12,6 @@
         "jsx": "react-jsx"
     },
     "include": ["packages/business/**/*.ts", "packages/infrastructure/**/*.ts",
-    "packages/contracts/**/*.ts", "packages/server/**/*.ts"],
+    "packages/contracts/**/*.ts", "packages/server/**/*.ts", "packages/contracts/tsconfig.json"],
     "exclude": ["node_modules", "dist"]
 }

@@ -1,11 +1,16 @@
 {
-    "name": "@draftbash/business",
-    "version": "1.0.0",
-    "main": "index.js",
-    "private": true,
-    "scripts": {
-        "build": "npx tsc"
-    },
-    "dependencies": {},
-    "devDependencies": {}
+  "name": "@draftbash/business",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@draftbash/contracts": "*",
+    "@draftbash/infrastructure": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

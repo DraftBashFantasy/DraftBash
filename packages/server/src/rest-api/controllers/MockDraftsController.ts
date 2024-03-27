@@ -7,8 +7,8 @@ import {
     MockDraftResponse,
     UpdateMockDraftRequest,
     CreateMockDraftRequest,
-} from '../../../../contracts';
-import { BadRequestError, DraftNotFoundError } from '../../../../business';
+} from '@draftbash/contracts';
+import { BadRequestError, DraftNotFoundError } from '@draftbash/business';
 
 export class MockDraftsController {
     private readonly createMockDraftsUseCase: ICreateMockDraftsUseCase;

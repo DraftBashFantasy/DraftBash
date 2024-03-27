@@ -4,8 +4,8 @@ import {
     DeleteMockDraftsUseCase,
     CreateMockDraftsUseCase,
     UpdateMockDraftsUseCase,
-} from '../../../../business';
-import { UsersRepository, DraftUsersRepository, MockDraftsRepository } from '../../../../infrastructure';
+} from '@draftbash/business';
+import { UsersRepository, DraftUsersRepository, MockDraftsRepository } from '@draftbash/infrastructure';
 import { MockDraftsController } from '../controllers';
 
 export const mockDraftsRouter = express.Router();
