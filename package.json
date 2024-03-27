@@ -7,10 +7,11 @@
     "scripts": {
         "start:server": "docker-compose down --remove-orphans && docker-compose build && docker-compose up",
         "dev": "concurrently \"docker-compose down --remove-orphans && docker-compose build && docker-compose up\" \"yarn workspace @draftbash/web-client dev\"",
-        "build:server": "npx tsc",
+        "build": "npx tsc",
         "dev:client": "yarn workspace @draftbash/web-client dev",
         "show:database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash",
-        "build:client": "yarn workspace @draftbash/web-client build"
+        "build:client": "yarn workspace @draftbash/web-client build",
+        "start": "node dist/server/src/app.js"
     },
     "dependencies": {
         "@types/node": "^20.11.13",

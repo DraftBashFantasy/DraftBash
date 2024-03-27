@@ -1,4 +1,4 @@
-import { RightColumn } from "../layout/RightColumn";
+import { RightColumn } from "./layout/RightColumn";
 
 export const LoginPageMobile = () => {
     return (
