@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RoundedButton } from '../../../shared';
+import { Button } from '../../../shared';
 
 interface Props {
     slideDirection: string | null;
@@ -50,9 +50,9 @@ export const LeaguesViewer = (props: Props) => {
                     Status: <b style={styles.status}>not started</b>
                 </li>
             </ul>
-            <RoundedButton style={styles.enterButton} handleOnClick={() => {}}>
+            <Button style={styles.enterButton} handleOnClick={() => {}}>
                 ENTER LEAGUE
-            </RoundedButton>
+            </Button>
         </div>
     );
 };

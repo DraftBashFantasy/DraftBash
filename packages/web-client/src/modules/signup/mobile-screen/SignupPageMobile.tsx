@@ -1,6 +1,6 @@
-import { RightColumn } from "./layout/RightColumn";
+import { RightColumn } from './layout/RightColumn';
 
-export const SignupPageMobile = () => {
+export const SignupPage = () => {
     return (
         <div style={styles.signupPage}>
             <RightColumn />
@@ -13,5 +13,5 @@ const styles = {
         backgroundColor: 'var(--black)',
         display: 'flex',
         height: '100vh',
-    }
+    },
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TbChevronCompactLeft } from 'react-icons/tb';
 import { TbChevronCompactRight } from 'react-icons/tb';
-import { RoundedButton, PageFrame } from '../../shared';
+import { Button, PageFrame } from '../../shared';
 import { LeaguesViewer } from './features/LeaguesViewer';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,14 +47,14 @@ export function HomePage() {
                 onClick={incrementMockDrafts}
             />
             <p style={styles.createMockDraftSuggestion as React.CSSProperties}>Need practice? Use mock drafts.</p>
-            <RoundedButton
+            <Button
                 style={styles.createMockDraftButton}
                 handleOnClick={() => {
                     navigate('/mock-drafts');
                 }}
             >
                 MOCK DRAFTS
-            </RoundedButton>
+            </Button>
         </PageFrame>
     );
 }
