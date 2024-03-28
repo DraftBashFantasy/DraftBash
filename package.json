@@ -7,9 +7,9 @@
         "start:server": "docker-compose down --remove-orphans && docker-compose build && docker-compose up",
         "dev": "concurrently \"docker-compose down --remove-orphans && docker-compose build && docker-compose up\" \"yarn workspace @draftbash/web-client dev\"",
         "build:server": "npm run build -w packages/server",
-        "dev:client": "npm -w @draftbash/web-client dev",
+        "dev:client": "npm run dev -w @draftbash/web-client",
         "show:database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash",
-        "build:client": "npm -w @draftbash/web-client build",
+        "build:client": "npm run build -w @draftbash/web-client",
         "start": "node dist/server/src/app.js"
     },
     "keywords": [],
