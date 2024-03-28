@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RoundedButton, PasswordInput, TextInput } from '../../../shared';
+import { Button, PasswordInput, TextInput } from '../../../shared';
 import { LoginHeader } from '../components/LoginHeader';
 import { useLogin } from '../../hooks/useLogin';
 
@@ -19,9 +19,9 @@ export const LoginForm = () => {
             <TextInput placeholder="Username or email" onChange={setUsernameOrEmail} />
             <PasswordInput placeholder="Password" onChange={setPassword} />
             {loginError && <p style={styles.error as React.CSSProperties}>{loginError}</p>}
-            <RoundedButton handleOnClick={(e) => handleLoginClick(e)} style={styles.loginButton}>
+            <Button handleOnClick={(e) => handleLoginClick(e)} style={styles.loginButton}>
                 Log In
-            </RoundedButton>
+            </Button>
         </form>
     );
 };

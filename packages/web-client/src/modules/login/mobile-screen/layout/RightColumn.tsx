@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginForm } from '../features/LoginForm';
+import { LoginForm } from '../features/LoginFormMobile';
 
 export const RightColumn = () => {
     return (

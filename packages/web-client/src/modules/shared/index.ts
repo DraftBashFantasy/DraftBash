@@ -1,4 +1,4 @@
-export { RoundedButton } from './normal-screen/components/buttons/RoundedButton';
+export { Button } from './normal-screen/components/buttons/Button';
 export { PageFrame } from './normal-screen/layout/PageFrame';
 export { PasswordInput } from './normal-screen/components/text-input/PasswordInput';
 export { TextInput } from './normal-screen/components/text-input/TextInput';

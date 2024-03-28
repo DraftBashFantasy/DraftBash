@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { RoundedButton, PasswordInput, TextInput } from '../../../shared';
-import { LoginHeader } from '../components/LoginHeader';
+import { Button, PasswordInput, TextInput } from '../../../shared';
+import { LoginHeader } from '../components/LoginHeaderMobile';
 import { useLogin } from '../../hooks/useLogin';
 
 export const LoginForm = () => {
@@ -19,9 +19,9 @@ export const LoginForm = () => {
             <TextInput placeholder="Username or email" onChange={setUsernameOrEmail} />
             <PasswordInput placeholder="Password" onChange={setPassword} />
             {loginError && <p style={styles.error as React.CSSProperties}>{loginError}</p>}
-            <RoundedButton handleOnClick={(e) => handleLoginClick(e)} style={styles.loginButton}>
+            <Button handleOnClick={(e) => handleLoginClick(e)} style={styles.loginButton}>
                 Log In
-            </RoundedButton>
+            </Button>
         </form>
     );
 };
@@ -33,11 +33,11 @@ const styles = {
         flexDirection: 'column',
     },
     loginButton: {
-        width: '50%',
-        marginLeft: '25%',
         marginTop: '25px',
         backgroundColor: 'var(--gold)',
         color: 'white',
+        width: '100%',
+        borderRadius: '5px'
     },
     error: {
         color: 'red',

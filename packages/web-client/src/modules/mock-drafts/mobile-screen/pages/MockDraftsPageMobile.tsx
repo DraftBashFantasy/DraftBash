@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TbChevronCompactLeft } from 'react-icons/tb';
 import { TbChevronCompactRight } from 'react-icons/tb';
-import { RoundedButton, PageFrame } from '../../../shared';
+import { Button, PageFrame } from '../../../shared';
 import { MockDraftsViewerMobile } from '../features/MockDraftsViewerMobile';
 import { useNavigate } from 'react-router-dom';
 

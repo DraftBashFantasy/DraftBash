@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PageFrame, RoundedButton } from '../../../shared';
+import { PageFrame, Button } from '../../../shared';
 import { useAuth } from '../../../shared';
 import PickList from '../../../shared/normal-screen/components/lists/PickList';
 import SettingsRadioInput from '../components/SettingsRadioInput';
@@ -166,9 +166,9 @@ export function CreateMockDraftsPage() {
                     />
                 </div>
             </div>
-            <RoundedButton style={styles.createMockDraftButton} handleOnClick={(e) => handleLoginClick(e)}>
+            <Button style={styles.createMockDraftButton} handleOnClick={(e) => handleLoginClick(e)}>
                 CREATE DRAFT
-            </RoundedButton>
+            </Button>
         </PageFrame>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RoundedButton } from '../../../shared';
+import { Button } from '../../../shared';
 
 interface Props {
     slideDirection: string | null;
@@ -50,9 +50,9 @@ export const MockDraftsViewer = (props: Props) => {
                     Status: <b style={styles.draftStatus}>not started</b>
                 </li>
             </ul>
-            <RoundedButton style={styles.joinButton} handleOnClick={() => {}}>
+            <Button style={styles.joinButton} handleOnClick={() => {}}>
                 JOIN DRAFT
-            </RoundedButton>
+            </Button>
         </div>
     );
 };

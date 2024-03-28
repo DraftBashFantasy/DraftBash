@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput } from '../../../shared';
-import { RoundedButton } from '../../../shared';
+import { Button } from '../../../shared';
 import { SignupHeader } from '../components/SignupHeader';
 import { PasswordInput } from '../../../shared';
 import { PasswordRules } from '../components/PasswordRules';
@@ -27,12 +27,12 @@ export const SignupForm = () => {
             <PasswordInput placeholder="Confirm Password" onChange={setConfirmPassword} />
             <PasswordRules password={password} />
             {signupError && <p style={styles.error as React.CSSProperties}>{signupError}</p>}
-            <RoundedButton
+            <Button
                 handleOnClick={(e) => handleLoginClick(e)}
                 style={styles.loginButton}
             >
                 Sign up
-            </RoundedButton>
+            </Button>
         </form>
     );
 };

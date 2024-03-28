@@ -4,7 +4,7 @@ import { LoginPage } from '../modules/login';
 import { SignupPage } from '../modules/signup';
 import { CreateMockDraftsPage, MockDraftsPage } from '../modules/mock-drafts';
 import { PageLayout } from '../modules/shared';
-import { HomePage } from '../modules/home-page/normal-screen/HomePage';
+import { HomePage } from '../modules/home/normal-screen/HomePage';
 
 export const AppRoutes= () => {
     return (

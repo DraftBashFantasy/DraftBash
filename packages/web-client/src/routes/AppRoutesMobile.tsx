@@ -4,7 +4,7 @@ import { SignupPageMobile } from "../modules/signup";
 import ProtectedRoute from "./ProtectedRoute";
 import { CreateMockDraftsPageMobile, MockDraftsPageMobile } from "../modules/mock-drafts";
 import { PageLayoutMobile } from "../modules/shared/mobile-screen/layout/PageLayoutMobile";
-import { HomePageMobile } from "../modules/home-page";
+import { HomePageMobile } from "../modules/home";
 
 export const AppRoutesMobile = () => {
     return (

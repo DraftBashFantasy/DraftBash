@@ -6,7 +6,7 @@ interface Props {
     style?: React.CSSProperties;
 }
 
-export const RoundedButton = (props: Props) => {
+export const Button = (props: Props) => {
     const { handleOnClick, children, style } = props;
 
     const [isHovered, setIsHovered] = useState(false);
