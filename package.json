@@ -6,7 +6,7 @@
     "scripts": {
         "start:server": "docker-compose down --remove-orphans && docker-compose build && docker-compose up",
         "dev": "concurrently \"docker-compose down --remove-orphans && docker-compose build && docker-compose up\" \"yarn workspace @draftbash/web-client dev\"",
-        "build:server": "npm run build -w packages/server && npx tsc",
+        "build:server": "npm run build -w packages/server",
         "dev:client": "npm -w @draftbash/web-client dev",
         "show:database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash",
         "build:client": "npm -w @draftbash/web-client build",
