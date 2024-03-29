@@ -22,8 +22,8 @@ export const NavbarMobile = () => {
                 <BsThreeDotsVertical style={styles.logout} onClick={toggleModal} />
             </div>
             {isModalOpen && (
-                <div className="modal-background" onClick={handleModalClick} style={styles.modalBackground}>
-                    <div className="modal-content" style={styles.modalContent}>
+                <div onClick={handleModalClick} style={styles.modalBackground}>
+                    <div style={styles.modalContent}>
                         <ul>
                             <li onClick={logout} style={styles.modalText}>
                                 <FaSignOutAlt />Logout

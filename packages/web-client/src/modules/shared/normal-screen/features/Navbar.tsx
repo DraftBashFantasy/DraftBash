@@ -16,15 +16,21 @@ export const Navbar = () => {
 
     return (
         <div style={styles.navbar}>
-            <Link
-                to="/mock-drafts"
-                style={styles.option}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-            >
+            <Link to="/players" style={styles.option} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                Players
+            </Link>
+            <Link to="/mock-drafts" style={styles.option} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                 Mock Drafts
             </Link>
-            <FaSignOutAlt style={styles.logout} onClick={logout} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
+            <Link to="/" style={styles.option} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                Home
+            </Link>
+            <FaSignOutAlt
+                style={styles.logout}
+                onClick={logout}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            />
         </div>
     );
 };
@@ -36,7 +42,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        padding: '5px 50px 5px 50px',
+        padding: '0px 50px 0px 50px',
         gap: '30px',
         boxShadow: '0px 5px 5px rgba(0, 0, 0, .5)',
         borderBottom: '1px solid var(--gold)',
@@ -45,20 +51,19 @@ const styles = {
         cursor: 'pointer',
         color: 'white',
         height: '100%',
-        padding: '0px 10px 0px 10px',
-        width: '40px'
+        padding: '0px 15px 0px 15px',
+        width: '50px'
     },
     option: {
-        lineHeight: '40px',
+        lineHeight: '50px',
         textDecoration: 'none',
         height: '100%',
-        padding: '0px 10px 0px 10px',
-        borderRadius: '10px',
+        padding: '0px 15px 0px 15px',
         color: 'white',
         backgroundColor: 'rgba(0,0,0,0)',
         transition: 'background-color 0.3s ease',
     },
     linkHover: {
-        backgroundColor: 'var(--transparentGrey)',
+        backgroundColor: 'var(--transparentBlue)',
     }
 };

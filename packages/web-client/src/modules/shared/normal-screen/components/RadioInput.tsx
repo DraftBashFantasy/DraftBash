@@ -7,7 +7,7 @@ interface Props {
     defaultValue: string | number;
 }
 
-const SettingsRadioInput: React.FC<Props> = ({ setValue, values, label, defaultValue }) => {
+export const RadioInput: React.FC<Props> = ({ setValue, values, label, defaultValue }) => {
     return (
         <div style={styles.settingsGroup}>
             <h5>{label}</h5>
@@ -40,5 +40,3 @@ const styles = {
         gap: '3px',
     }
 };
-
-export default SettingsRadioInput;

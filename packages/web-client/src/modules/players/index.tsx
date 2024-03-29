@@ -1,0 +1,1 @@
+export { PlayersPage } from './normal-screen/PlayersPage';

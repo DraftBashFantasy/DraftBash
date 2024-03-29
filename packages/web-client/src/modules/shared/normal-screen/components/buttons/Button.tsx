@@ -14,7 +14,6 @@ export const Button = (props: Props) => {
     return (
         <div style={styles}>
             <button
-                className={`rounded-button`}
                 style={{
                     ...styles.button,
                     ...(isHovered && styles.hover),
@@ -32,22 +31,20 @@ export const Button = (props: Props) => {
 
 const styles = {
     border: 'none',
-
     button: {
         border: 'none',
         height: '50px',
         outline: 'none',
         borderRadius: '25px',
-        padding: '10px 60px 10px 60px',
         cursor: 'pointer',
         transition: '0.3s',
         fontSize: '18px',
         boxShadow: '3px 3px 3px rgba(0, 0, 0, 0.1)',
-        fontWeight: '500',
-        whiteSpace: 'nowrap'
-    },
-
+        fontWeight: '600',
+        whiteSpace: 'nowrap',
+        textAlign: 'center'
+    } as React.CSSProperties,
     hover: {
         boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.2)',
-    },
+    }  as React.CSSProperties,
 };

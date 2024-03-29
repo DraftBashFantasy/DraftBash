@@ -3,7 +3,6 @@ import { Button } from '../../../shared';
 
 interface Props {
     slideDirection: string | null;
-
     mockDraft: unknown;
 }
 
@@ -34,31 +33,31 @@ export const MockDraftsViewer = (props: Props) => {
     };
 
     return (
-        <div style={styles.mockDraftsContainer}>
-            <h2 style={styles.draftHeader}>Your Mock Draft</h2>
+        <div style={styles.container}>
+            <h2 style={styles.header}>Your draft</h2>
             <ul style={{ ...styles.details, ...slidingStyles }}>
-                <li style={styles.draftDetail}>
-                    Draft Type: <b style={styles.draftDetailValue}>linear</b>
+                <li style={styles.detail}>
+                    Draft Type: <b style={styles.detailValue}>Snake</b>
                 </li>
-                <li style={styles.draftDetail}>
-                    Scoring Type: <b style={styles.draftDetailValue}>points</b>
+                <li style={styles.detail}>
+                    Scoring Type: <b style={styles.detailValue}>points</b>
                 </li>
-                <li style={styles.draftDetail}>
-                    Team count: <b style={styles.draftDetailValue}>8</b>
+                <li style={styles.detail}>
+                    Team count: <b style={styles.detailValue}>8</b>
                 </li>
-                <li style={styles.draftDetail}>
-                    Status: <b style={styles.draftStatus}>not started</b>
+                <li style={styles.detail}>
+                    Status: <b style={styles.status}>not started</b>
                 </li>
             </ul>
-            <Button style={styles.joinButton} handleOnClick={() => {}}>
-                JOIN DRAFT
+            <Button style={styles.enterButton} handleOnClick={() => {}}>
+                ENTER DRAFT
             </Button>
         </div>
     );
 };
 
 const styles = {
-    mockDraftsContainer: {
+    container: {
         margin: 'auto',
         background: 'linear-gradient(to top, var(--brightBlue), var(--dullIndigo))',
         width: '60%',
@@ -71,42 +70,42 @@ const styles = {
         boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.2)',
         overflow: 'hidden',
     } as React.CSSProperties,
-    draftHeader: {
+    header: {
         textAlign: 'center',
         color: 'white',
-        fontSize: '30px',
+        fontSize: '45px',
         fontWeight: '500',
     } as React.CSSProperties,
     details: {
-        padding: '50px',
+        alignItems: 'center',
+        paddingTop: '2%',
         display: 'flex',
         flexDirection: 'column',
         height: '60%',
-        justifyContent: 'space-around',
     } as React.CSSProperties,
-    draftDetail: {
+    detail: {
         fontWeight: '600',
-        fontSize: '20px',
+        width: '400px',
+        fontSize: '23px',
         color: 'var(--darkGrey)',
     } as React.CSSProperties,
-    draftDetailValue: {
+    detailValue: {
         fontWeight: '500',
-        fontSize: '20px',
+        fontSize: '23px',
         color: 'white',
     } as React.CSSProperties,
-    draftStatus: {
+    status: {
         fontWeight: '500',
-        fontSize: '20px',
+        fontSize: '23px',
         color: 'var(--darkGreen)',
     } as React.CSSProperties,
-    joinButton: {
+    enterButton: {
         position: 'absolute',
         bottom: '25px',
         width: '50%',
         marginLeft: '25%',
         backgroundColor: 'var(--blue)',
+        textAlign: 'center',
         color: 'white',
     } as React.CSSProperties,
 };
-
-export default MockDraftsViewer;

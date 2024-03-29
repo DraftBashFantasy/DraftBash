@@ -5,12 +5,17 @@ import { SignupPage } from '../modules/signup';
 import { CreateMockDraftsPage, MockDraftsPage } from '../modules/mock-drafts';
 import { PageLayout } from '../modules/shared';
 import { HomePage } from '../modules/home/normal-screen/HomePage';
+import { PlayersPage } from '../modules/players';
 
 export const AppRoutes= () => {
     return (
         <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route
+                path="/players/*"
+                element={<ProtectedRoute path="/" element={<PlayersPage />} layout={<PageLayout />} />}
+            />
             <Route
                 path="/mock-drafts/create/*"
                 element={<ProtectedRoute path="/" element={<CreateMockDraftsPage />} layout={<PageLayout />} />}

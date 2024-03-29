@@ -10,17 +10,16 @@ export const PageFrame = (props: Props) => {
 
 const styles = {
     pageFrame: {
-        backgroundColor: 'var(--silver)',
-        padding: '20px',
-        marginTop: '50px',
-        width: '60%',
+        padding: '50px',
+        backgroundColor: 'var(--lightGrey)',
+        width: '100%',
         border: '1px solid var(--darkGrey)',
-        borderRadius: '15px',
-        marginLeft: '20%',
-        height: 'calc(100% - 150px)',
-        minHeight: '500px',
+        borderTop: '10px solid var(--gold)',
+        borderRadius: '10px 10px 0px 0px',
+        height: 'calc(100%)',
         minWidth: '750px',
         position: 'relative',
-        boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.2)'
+        boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.2)',
+        overflow: 'auto'
     } as React.CSSProperties,
 };

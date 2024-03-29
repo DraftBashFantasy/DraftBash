@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PageFrame, Button } from '../../../shared';
 import { useAuth } from '../../../shared';
 import PickList from '../../../shared/normal-screen/components/lists/PickList';
-import SettingsRadioInput from '../components/SettingsRadioInput';
+import { RadioInput } from '../../../shared/normal-screen/components/RadioInput';
 import useCreateMockDraft from '../../hooks/useCreateMockDraft';
 
 export function CreateMockDraftsPage() {
@@ -48,132 +48,141 @@ export function CreateMockDraftsPage() {
 
     return (
         <PageFrame>
-            <h1 style={styles.header}>Draft Creation</h1>
-            <p style={styles.headerSubtext}>Set your draft settings below</p>
-            <div style={styles.settingsRow}>
-                <SettingsRadioInput
-                    setValue={(value) => setScoringType(String(value))}
-                    values={['Points', 'Category']}
-                    label={'Scoring'}
-                    defaultValue={'Points'}
-                />
-                <SettingsRadioInput
-                    setValue={(value) => setOrderType(String(value))}
-                    values={['Snake', 'Linear']}
-                    label={'Order'}
-                    defaultValue={'Snake'}
-                />
-                <div style={styles.settingsGroup}>
-                    <h5># Teams</h5>
-                    <PickList
-                        itemList={[8, 10, 12, 14]}
-                        defaultValue={10}
-                        setValue={(item) => setTeamCount(Number(item))}
-                        width="50"
+            <div style={styles.pageContainer}>
+                <h1 style={styles.header}>Draft Creation</h1>
+                <p style={styles.headerSubtext}>Set your draft settings below</p>
+                <div style={styles.settingsRow}>
+                    <RadioInput
+                        setValue={(value) => setScoringType(String(value))}
+                        values={['Points', 'Category']}
+                        label={'Scoring'}
+                        defaultValue={'Points'}
                     />
-                </div>
-                <div style={styles.settingsGroup}>
-                    <h5>Pick Time</h5>
-                    <PickList
-                        itemList={['30 seconds', '60 seconds', '90 seconds', '120 seconds']}
-                        defaultValue="90 seconds"
-                        setValue={(item) => setPickTime(Number(String(item).split(' ')[0]))}
-                        width="110"
+                    <RadioInput
+                        setValue={(value) => setOrderType(String(value))}
+                        values={['Snake', 'Linear']}
+                        label={'Order'}
+                        defaultValue={'Snake'}
                     />
+                    <div style={styles.settingsGroup}>
+                        <h5># Teams</h5>
+                        <PickList
+                            itemList={[8, 10, 12, 14]}
+                            defaultValue={10}
+                            setValue={(item) => setTeamCount(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.settingsGroup}>
+                        <h5>Pick Time</h5>
+                        <PickList
+                            itemList={['30 seconds', '60 seconds', '90 seconds', '120 seconds']}
+                            defaultValue="90 seconds"
+                            setValue={(item) => setPickTime(Number(String(item).split(' ')[0]))}
+                            width="110"
+                        />
+                    </div>
                 </div>
+                <h2 style={styles.rosterSpotsHeader}>Roster Spots</h2>
+                <div style={styles.settingsRow}>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>PG</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setPointguardSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>SG</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setShootingguardSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>G</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setGuardSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>SF</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setSmallforwardSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>PF</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setPowerforwardSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>F</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setForwardSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>C</h5>
+                        <PickList
+                            itemList={['0', '1', '2']}
+                            defaultValue="1"
+                            setValue={(item) => setCenterSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>UTIL</h5>
+                        <PickList
+                            itemList={['0', '1', '2', '3', '4']}
+                            defaultValue="3"
+                            setValue={(item) => setUtilitySlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                    <div style={styles.rosterSetting}>
+                        <h5 style={styles.rosterSettingLabel}>BE</h5>
+                        <PickList
+                            itemList={['0', '1', '2', '3', '4']}
+                            defaultValue="4"
+                            setValue={(item) => setBenchSlots(Number(item))}
+                            width="50"
+                        />
+                    </div>
+                </div>
+                <Button style={styles.createMockDraftButton} handleOnClick={(e) => handleLoginClick(e)}>
+                    CREATE DRAFT
+                </Button>
             </div>
-            <h2 style={styles.rosterSpotsHeader}>Roster Spots</h2>
-            <div style={styles.settingsRow}>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>PG</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setPointguardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>SG</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setShootingguardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>G</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setGuardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>SF</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setSmallforwardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>PF</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setPowerforwardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>F</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setForwardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>C</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setCenterSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>UTIL</h5>
-                    <PickList
-                        itemList={['0', '1', '2', '3', '4']}
-                        defaultValue="3"
-                        setValue={(item) => setUtilitySlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>BE</h5>
-                    <PickList
-                        itemList={['0', '1', '2', '3', '4']}
-                        defaultValue="4"
-                        setValue={(item) => setBenchSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-            </div>
-            <Button style={styles.createMockDraftButton} handleOnClick={(e) => handleLoginClick(e)}>
-                CREATE DRAFT
-            </Button>
         </PageFrame>
     );
 }
 
 const styles = {
+    pageContainer: {
+        backgroundColor: 'var(--silver)',
+        padding: '50px',
+        height: 'calc(100vh - 170px)',
+        borderRadius: '10px',
+        borderTop: '10px solid var(--indigo)'
+    } as React.CSSProperties,
     header: {
         fontSize: '30px',
     } as React.CSSProperties,

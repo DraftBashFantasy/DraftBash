@@ -7,3 +7,4 @@ export { PageLayout } from './normal-screen/layout/PageLayout';
 export { Navbar } from './normal-screen/features/Navbar';
 export { AuthProvider } from './services/AuthProvider';
 export { useAuth } from './hooks/useAuth';
+export { PlayerModal } from './normal-screen/features/PlayerModal';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TbChevronCompactLeft } from 'react-icons/tb';
 import { TbChevronCompactRight } from 'react-icons/tb';
 import { Button, PageFrame } from '../../../shared';
-import MockDraftsViewer from '../features/MockDraftsViewer';
+import { MockDraftsViewer } from '../features/MockDraftsViewer';
 import { useNavigate } from 'react-router-dom';
 
 export function MockDraftsPage() {

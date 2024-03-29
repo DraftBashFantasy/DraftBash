@@ -7,7 +7,9 @@ export const PageLayout = () => {
     return (
         <div style={styles.pageLayout}>
             <Navbar />
-            <Outlet />
+            <div style={styles.pageContent}>
+                <Outlet />
+            </div>
         </div>
     );
 };
@@ -18,4 +20,9 @@ const styles = {
         height: '100vh',
         overflow: 'auto',
     } as React.CSSProperties,
+    pageContent: {
+        padding: '50px 50px 0px 50px',
+        width: '100%',
+        height: 'calc(100% - 50px)'
+    }
 };

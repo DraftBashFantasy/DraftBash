@@ -1,6 +1,6 @@
 import { RightColumn } from './layout/RightColumn';
 
-export const SignupPage = () => {
+export const SignupPageMobile = () => {
     return (
         <div style={styles.signupPage}>
             <RightColumn />

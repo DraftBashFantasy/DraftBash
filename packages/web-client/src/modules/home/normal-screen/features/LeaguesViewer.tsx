@@ -3,7 +3,6 @@ import { Button } from '../../../shared';
 
 interface Props {
     slideDirection: string | null;
-
     mockDraft: unknown;
 }
 
@@ -35,7 +34,7 @@ export const LeaguesViewer = (props: Props) => {
 
     return (
         <div style={styles.container}>
-            <h2 style={styles.header}>Your Leagues</h2>
+            <h2 style={styles.header}>Your league</h2>
             <ul style={{ ...styles.details, ...slidingStyles }}>
                 <li style={styles.detail}>
                     League Type: <b style={styles.detailValue}>H2H</b>
@@ -74,29 +73,30 @@ const styles = {
     header: {
         textAlign: 'center',
         color: 'white',
-        fontSize: '30px',
+        fontSize: '45px',
         fontWeight: '500',
     } as React.CSSProperties,
     details: {
-        padding: '50px',
+        alignItems: 'center',
+        paddingTop: '2%',
         display: 'flex',
         flexDirection: 'column',
         height: '60%',
-        justifyContent: 'space-around',
     } as React.CSSProperties,
     detail: {
         fontWeight: '600',
-        fontSize: '20px',
+        width: '400px',
+        fontSize: '23px',
         color: 'var(--darkGrey)',
     } as React.CSSProperties,
     detailValue: {
         fontWeight: '500',
-        fontSize: '20px',
+        fontSize: '23px',
         color: 'white',
     } as React.CSSProperties,
     status: {
         fontWeight: '500',
-        fontSize: '20px',
+        fontSize: '23px',
         color: 'var(--darkGreen)',
     } as React.CSSProperties,
     enterButton: {
@@ -105,6 +105,7 @@ const styles = {
         width: '50%',
         marginLeft: '25%',
         backgroundColor: 'var(--blue)',
+        textAlign: 'center',
         color: 'white',
     } as React.CSSProperties,
 };
