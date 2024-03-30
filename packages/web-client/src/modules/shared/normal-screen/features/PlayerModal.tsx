@@ -24,7 +24,9 @@ export const PlayerModal = () => {
                                 src="https://cdn.nba.com/headshots/nba/latest/260x190/2544.png"
                                 alt="Lebron James"
                             />
+                            <img src="https://cdn.nba.com/logos/nba/LAL/primary/L/logo.svg" alt="Los Angeles Lakers Logo"></img>
                             <h2>Lebron James</h2>
+                            Trending up: +4.5k added in a day
                         </div>
                     </div>
                 </div>

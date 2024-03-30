@@ -14,7 +14,7 @@ export const PlayersPage = () => {
                     <TextInput placeholder="🔍 Search" onChange={() => console.log('Hi')} />
                 </div>
                 <div style={styles.positionFilter}>
-                    <b>Position:</b>
+                    <b>Position</b>
                     <PickList
                         itemList={['All', 'PG', 'SG', 'SF', 'PF', 'C', 'G', 'F']}
                         setValue={() => {
@@ -24,12 +24,25 @@ export const PlayersPage = () => {
                         width={'50'}
                     />
                 </div>
-                <RadioInput
-                    setValue={() => console.log('Hi')}
-                    values={['Points', 'Category']}
-                    label={'Scoring'}
-                    defaultValue={'Points'}
-                />
+                <div style={{ display: 'flex', gap: '70px' }}>
+                    <RadioInput
+                        setValue={() => console.log('Hi')}
+                        values={['Points', 'Category']}
+                        label={'Scoring'}
+                        defaultValue={'Points'}
+                    />
+                    <div style={{ display: 'flex', gap: '5px', flexDirection: 'column'}}>
+                        <b>Trending</b>
+                        <PickList
+                            itemList={['Down', 'Up', 'None']}
+                            setValue={() => {
+                                console.log('');
+                            }}
+                            defaultValue={'None'}
+                            width={'55'}
+                        />
+                    </div>
+                </div>
             </div>
             <div style={styles.playersInfoSection}>
                 <PlayerInfoTable />
@@ -62,7 +75,8 @@ const styles = {
     } as React.CSSProperties,
     positionFilter: {
         display: 'flex',
-        gap: '10px',
+        flexDirection: 'column',
+        gap: '5px',
         alignItems: 'flex-start',
     } as React.CSSProperties,
     playersInfoSection: {

@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start:server": "docker-compose down --remove-orphans && docker-compose build && docker-compose up",
-        "dev": "concurrently \"docker-compose down --remove-orphans && docker-compose build && docker-compose up\" \"yarn workspace @draftbash/web-client dev\"",
+        "dev": "concurrently \"docker-compose down --remove-orphans && docker-compose build && docker-compose up\" \"npm run dev -w @draftbash/web-client\"",
         "build:server": "npm run build -w packages/server",
         "dev:client": "npm run dev -w @draftbash/web-client",
         "show:database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash",

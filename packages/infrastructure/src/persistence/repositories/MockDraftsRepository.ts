@@ -20,7 +20,7 @@ export class MockDraftsRepository implements IMockDraftsRepository {
             pointguard_slots, shootingguard_slots, guard_slots, smallforward_slots, powerforward_slots,
             forward_slots, center_slots, utility_slots, bench_slots, scheduled_by_user_id
             FROM drafts WHERE draft_id IN (
-            SELECT draft_id FROM draft_users WHERE user_id = $1
+                SELECT draft_id FROM draft_users WHERE user_id = $1
             )`,
             [userId],
         );
@@ -175,9 +175,9 @@ export class MockDraftsRepository implements IMockDraftsRepository {
                 `INSERT INTO drafts (scheduled_by_user_id, order_type, scoring_type, pick_time_seconds, 
                 team_count, pointguard_slots, shootingguard_slots, guard_slots, smallforward_slots, 
                 powerforward_slots, forward_slots, center_slots, utility_slots, bench_slots)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-            RETURNING draft_id;
-        `,
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+                RETURNING draft_id;
+            `,
                 [
                     mockDraft.getScheduledByUserId(),
                     mockDraft.getOrderType(),

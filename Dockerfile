@@ -6,17 +6,16 @@ WORKDIR /app
 
 # Copy shared dependencies from the root
 COPY package*.json ./
-COPY yarn.lock ./
 
 # Install dependencies for all packages
-RUN yarn install
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
 # Install dependencies for each package
 WORKDIR /app/packages
-RUN yarn install
+RUN npm install
 
 # Build TypeScript code for all packages
 WORKDIR /app

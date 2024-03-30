@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { PageFrame, Button } from '../../../shared';
-import { useAuth } from '../../../shared';
-import PickList from '../../../shared/normal-screen/components/lists/PickList';
-import SettingsRadioInput from '../components/SettingsRadioInput';
-import useCreateMockDraft from '../../hooks/useCreateMockDraft';
+import { useState } from "react";
+import { DraftSettingMobile } from "../components/DraftSetting";
+import { RosterSetting } from "../components/RosterSetting";
+import { useCreateMockDraft } from "../../hooks/useCreateMockDraft";
+import { useAuth } from "../../../shared";
+
 
 export function CreateMockDraftsPageMobile() {
     const { handleCreateMockDraft } = useCreateMockDraft();
     const { user } = useAuth();
-    const [scoringType, setScoringType] = useState('Points');
+
     const [orderType, setOrderType] = useState('Snake');
+    const [scoringType, setScoringType] = useState('Points');
     const [teamCount, setTeamCount] = useState(10);
-    const [pickTime, setPickTime] = useState(90);
+    const [pickTimeSeconds, setPickTimeSeconds] = useState(90);
     const [pointguardSlots, setPointguardSlots] = useState(1);
     const [shootingguardSlots, setShootingguardSlots] = useState(1);
     const [guardSlots, setGuardSlots] = useState(1);
@@ -19,18 +20,17 @@ export function CreateMockDraftsPageMobile() {
     const [powerforwardSlots, setPowerforwardSlots] = useState(1);
     const [forwardSlots, setForwardSlots] = useState(1);
     const [centerSlots, setCenterSlots] = useState(1);
-    const [utilitySlots, setUtilitySlots] = useState(3);
+    const [utilitySlots, setUtilitySlots] = useState(2);
     const [benchSlots, setBenchSlots] = useState(4);
 
-    const handleLoginClick = async (event: any) => {
-        event.preventDefault();
+    const createMockdraft = async () => {
         if (user) {
             await handleCreateMockDraft({
                 scheduledByUserId: user.userId,
                 draftSettings: {
                     orderType: orderType.toLowerCase(),
                     scoringType: scoringType.toLowerCase(),
-                    pickTimeSeconds: pickTime,
+                    pickTimeSeconds: pickTimeSeconds,
                     teamCount: teamCount,
                     pointguardSlots: pointguardSlots,
                     shootingguardSlots: shootingguardSlots,
@@ -47,178 +47,177 @@ export function CreateMockDraftsPageMobile() {
     };
 
     return (
-        <PageFrame>
-            <h1 style={styles.header}>Draft Creation</h1>
-            <p style={styles.headerSubtext}>Set your draft settings below</p>
-            <div style={styles.settingsRow}>
-                <SettingsRadioInput
-                    setValue={(value) => setScoringType(String(value))}
-                    values={['Points', 'Category']}
-                    label={'Scoring'}
-                    defaultValue={'Points'}
-                />
-                <SettingsRadioInput
-                    setValue={(value) => setOrderType(String(value))}
-                    values={['Snake', 'Linear']}
-                    label={'Order'}
-                    defaultValue={'Snake'}
-                />
-                <div style={styles.settingsGroup}>
-                    <h5># Teams</h5>
-                    <PickList
-                        itemList={[8, 10, 12, 14]}
-                        defaultValue={10}
-                        setValue={(item) => setTeamCount(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.settingsGroup}>
-                    <h5>Pick Time</h5>
-                    <PickList
-                        itemList={['30 seconds', '60 seconds', '90 seconds', '120 seconds']}
-                        defaultValue="90 seconds"
-                        setValue={(item) => setPickTime(Number(String(item).split(' ')[0]))}
-                        width="110"
-                    />
-                </div>
+        <div style={styles.page}>
+            <div style={styles.header}>
+                <h1 style={styles.pageTitle} onClick={() => console.log('Hello')}>
+                    Draft Settings
+                </h1>
+                <p style={styles.createButton} onClick={() => createMockdraft()}>
+                    Create
+                </p>
             </div>
-            <h2 style={styles.rosterSpotsHeader}>Roster Spots</h2>
-            <div style={styles.settingsRow}>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>PG</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setPointguardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>SG</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setShootingguardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>G</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setGuardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>SF</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setSmallforwardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>PF</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setPowerforwardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>F</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setForwardSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>C</h5>
-                    <PickList
-                        itemList={['0', '1', '2']}
-                        defaultValue="1"
-                        setValue={(item) => setCenterSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>UTIL</h5>
-                    <PickList
-                        itemList={['0', '1', '2', '3', '4']}
-                        defaultValue="3"
-                        setValue={(item) => setUtilitySlots(Number(item))}
-                        width="50"
-                    />
-                </div>
-                <div style={styles.rosterSetting}>
-                    <h5 style={styles.rosterSettingLabel}>BE</h5>
-                    <PickList
-                        itemList={['0', '1', '2', '3', '4']}
-                        defaultValue="4"
-                        setValue={(item) => setBenchSlots(Number(item))}
-                        width="50"
-                    />
-                </div>
+            <DraftSettingMobile
+                value={scoringType}
+                setValue={setScoringType}
+                values={['Points', 'Category']}
+                title={'Scoring Type'}
+                width={100}
+            />
+            <DraftSettingMobile
+                value={orderType}
+                setValue={setOrderType}
+                values={['Snake', 'Linear']}
+                title={'Order Type'}
+                width={100}
+            />
+            <DraftSettingMobile
+                value={teamCount}
+                setValue={setTeamCount}
+                values={[4, 6, 8, 10, 12, 14]}
+                title={'# Teams'}
+                width={65}
+            />
+            <DraftSettingMobile
+                value={pickTimeSeconds}
+                setValue={setPickTimeSeconds}
+                values={[30, 60, 90, 120, 150, 180]}
+                title={'Time Per Pick'}
+                width={65}
+            />
+            <div>
+                <h5 style={styles.rosterTitle}>Roster</h5>
+                <RosterSetting
+                    value={pointguardSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Point Guard (PG)'}
+                    setValue={setPointguardSlots}
+                />
+                <RosterSetting
+                    value={shootingguardSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Shooting Guard (PG)'}
+                    setValue={setShootingguardSlots}
+                />
+                <RosterSetting
+                    value={guardSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Guard (G/PG/SG)'}
+                    setValue={setGuardSlots}
+                />
+                <RosterSetting
+                    value={smallforwardSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Smallforward (SF)'}
+                    setValue={setSmallforwardSlots}
+                />
+                <RosterSetting
+                    value={powerforwardSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Powerforward (PF)'}
+                    setValue={setPowerforwardSlots}
+                />
+                <RosterSetting
+                    value={forwardSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Forward (F/SF/PF)'}
+                    setValue={setForwardSlots}
+                />
+                <RosterSetting
+                    value={centerSlots}
+                    lowerBound={0}
+                    upperBound={2}
+                    title={'Center (C)'}
+                    setValue={setCenterSlots}
+                />
+                <RosterSetting
+                    value={utilitySlots}
+                    lowerBound={0}
+                    upperBound={4}
+                    title={'Utility (ALL)'}
+                    setValue={setUtilitySlots}
+                />
+                <RosterSetting
+                    value={benchSlots}
+                    lowerBound={0}
+                    upperBound={6}
+                    title={'Bench'}
+                    setValue={setBenchSlots}
+                />
             </div>
-            <Button style={styles.createMockDraftButton} handleOnClick={(e) => handleLoginClick(e)}>
-                CREATE DRAFT
-            </Button>
-        </PageFrame>
+        </div>
     );
 }
 
 const styles = {
-    header: {
-        fontSize: '30px',
-    } as React.CSSProperties,
-    settingsGroup: {
+    page: {
+        backgroundColor: 'var(--mediumGrey)',
+        height: 'calc(100% - 50px)',
+        padding: '0px 20px 20px 20px',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
-    } as React.CSSProperties,
-    radioInput: {
-        display: 'flex',
-        gap: '3px',
-    } as React.CSSProperties,
-    settingsRow: {
-        display: 'flex',
-        padding: '30px 0px 30px 0px',
-        borderBottom: 'lightGrey 2px solid',
-        gap: '50px',
-        flexWrap: 'wrap',
-    } as React.CSSProperties,
-    headerSubtext: {
-        borderBottom: 'lightGrey 2px solid',
-        paddingBottom: '10px',
-    } as React.CSSProperties,
-    rosterSetting: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        height: '30px',
-        width: '120px',
-    } as React.CSSProperties,
-    rosterSettingLabel: {
-        width: '100%',
-        paddingRight: '5px',
-        textAlign: 'right',
-        paddingTop: '2px',
-    } as React.CSSProperties,
-    rosterSpotsHeader: {
-        marginBottom: '-20px',
+        gap: '25px',
+        overflowY: 'auto',
+        overflowX: 'hidden'
+    },
+    header: {
+        color: 'var(--silver)',
         fontSize: '20px',
-        marginTop: '20px',
-    } as React.CSSProperties,
-    createMockDraftButton: {
-        backgroundColor: 'var(--gold)',
-        color: 'white',
-        width: '40%',
-        marginLeft: '30%',
-        marginTop: '25px',
-    } as React.CSSProperties,
+        position: 'sticky',
+        width: 'calc(100% + 40px)',
+        top: '0',
+        zIndex: '1',
+        backgroundColor: 'var(--mediumGrey)',
+        padding: '10px 20px',
+        boxShadow: '0px 5px 5px rgba(0, 0, 0, .5)',
+        marginLeft: '-20px',
+        display: 'flex',
+        justifyContent: 'space-between',
+    },
+    createButton: {
+        color: 'var(--brightGreen)',
+        fontWeight: '600',
+        fontSize: '20px'
+    },
+    pageTitle: {
+        color: 'var(--silver)',
+        fontSize: '20px'
+    },
+    settingTitle: {
+        color: 'var(--silver)',
+        fontSize: '12px',
+        marginBottom: '5px',
+    },
+    settingList: {
+        display: 'flex',
+        gap: '50px',
+    },
+    settingItem: {
+        backgroundColor: 'var(--transparentBlue)',
+        padding: '7px 5px 5px 5px',
+        height: '40px',
+        borderRadius: '30px',
+        width: '80px',
+        textAlign: 'center',
+        color: 'var(--silver)',
+    },
+    settingItemSelected: {
+        backgroundColor: 'var(--indigo)',
+        padding: '7px 5px 5px 5px',
+        height: '40px',
+        borderRadius: '30px',
+        width: '80px',
+        textAlign: 'center',
+        color: 'var(--silver)',
+    },
+    rosterTitle: {
+        color: 'var(--silver)',
+        fontSize: '12px',
+        marginBottom: '5px'
+    },
 };

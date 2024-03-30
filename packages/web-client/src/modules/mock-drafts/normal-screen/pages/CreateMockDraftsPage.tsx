@@ -3,11 +3,13 @@ import { PageFrame, Button } from '../../../shared';
 import { useAuth } from '../../../shared';
 import PickList from '../../../shared/normal-screen/components/lists/PickList';
 import { RadioInput } from '../../../shared/normal-screen/components/RadioInput';
-import useCreateMockDraft from '../../hooks/useCreateMockDraft';
+import { useCreateMockDraft } from '../../hooks/useCreateMockDraft';
 
 export function CreateMockDraftsPage() {
     const { handleCreateMockDraft } = useCreateMockDraft();
+    
     const { user } = useAuth();
+    
     const [scoringType, setScoringType] = useState('Points');
     const [orderType, setOrderType] = useState('Snake');
     const [teamCount, setTeamCount] = useState(10);
@@ -22,7 +24,7 @@ export function CreateMockDraftsPage() {
     const [utilitySlots, setUtilitySlots] = useState(3);
     const [benchSlots, setBenchSlots] = useState(4);
 
-    const handleLoginClick = async (event: any) => {
+    const createMockdraft = async (event: any) => {
         event.preventDefault();
         if (user) {
             await handleCreateMockDraft({
@@ -167,7 +169,7 @@ export function CreateMockDraftsPage() {
                         />
                     </div>
                 </div>
-                <Button style={styles.createMockDraftButton} handleOnClick={(e) => handleLoginClick(e)}>
+                <Button style={styles.createMockDraftButton} handleOnClick={(e) => createMockdraft(e)}>
                     CREATE DRAFT
                 </Button>
             </div>
@@ -189,7 +191,7 @@ const styles = {
     settingsGroup: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        gap: '5px'
     } as React.CSSProperties,
     radioInput: {
         display: 'flex',
