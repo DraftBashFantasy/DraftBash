@@ -2,11 +2,11 @@ import { PlayerModal } from "../../../shared";
 
 export const PlayerInfoTable = () => {
     return (
-        <table>
+        <table style={{overflow: 'auto'}}>
             <thead>
                 <tr>
                     <th style={styles.tableHeader}>Rank</th>
-                    <th style={{ ...styles.tableHeader, ...{ textAlign: 'left', width: '25%' } }}>Player</th>
+                    <th style={{ ...styles.tableHeader, ...{ textAlign: 'left', width: '25%', minWidth: '220px' } }}>Player</th>
                     <th
                         style={{
                             ...styles.tableHeader,
@@ -14,6 +14,8 @@ export const PlayerInfoTable = () => {
                                 textAlign: 'left',
                                 borderLeft: '1px solid var(--grey)',
                                 borderRight: '1px solid var(--grey)',
+                                width: '20%',
+                                minWidth: '200px',
                             },
                         }}
                     >
@@ -35,7 +37,7 @@ export const PlayerInfoTable = () => {
             <tbody>
                 <tr>
                     <td style={{ ...styles.tableDataStatistic, ...{ textAlign: 'right' } }}>1</td>
-                    <td style={styles.tableDataStatistic}>
+                    <td style={{ ...styles.tableDataStatistic, ...{ position: 'relative' } }}>
                         <PlayerModal />
                     </td>
                     <td
@@ -50,7 +52,7 @@ export const PlayerInfoTable = () => {
                             },
                         }}
                     >
-                        2023 Statistics
+                        2023 Season Averages
                     </td>
                     <td style={styles.tableDataStatistic}>45</td>
                     <td style={styles.tableDataStatistic}>36.5</td>
@@ -127,7 +129,7 @@ const styles = {
     tableDataProjection: {
         padding: '3px 10px 3px 10px',
         textAlign: 'center',
-        color: 'var(--darkGrey)',
+        color: 'var(--mediumGrey)',
         fontSize: '15px',
         borderTop: '1px solid var(--lightGrey)'
     } as React.CSSProperties,

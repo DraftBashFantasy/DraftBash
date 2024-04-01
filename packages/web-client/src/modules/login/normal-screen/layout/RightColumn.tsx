@@ -14,7 +14,7 @@ const styles = {
         boxShadow: '-10px 0px 10px rgba(0, 0, 0, 0.5)',
         width: '50%',
         marginLeft: 'auto',
-        backgroundColor: 'var(--grey)',
+        backgroundColor: 'var(--lightGrey)',
         padding: '50px 60px 50px 60px',
         height: '100vh',
         overflowY: 'auto',

@@ -1,5 +1,5 @@
-import { RightColumn } from '../layout/RightColumn';
-import { LeftColumn } from '../layout/LeftColumn';
+import { RightColumn } from './layout/RightColumn';
+import { LeftColumn } from './layout/LeftColumn';
 
 export const LoginPage = () => {
     return (

@@ -4,7 +4,7 @@ export function MockDraftsPageMobile() {
     const drafts = [1, 2, 3, 4, 5, 6, 7, 8]
 
     return (
-        <>
+        <div style={styles.page}>
             <div style={styles.header}>
                 <h1 style={styles.pageTitle}>Mock Drafts</h1>
                 <p style={styles.headerSubtext}>Join a mock draft to practice drafting against other users.</p>
@@ -21,15 +21,17 @@ export function MockDraftsPageMobile() {
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     );
 }
 
 const styles = {
+    page: {
+        background: 'linear-gradient(to top, var(--brightBlack) 0%, var(--brightBlack) 75%, var(--dullIndigo) 100%)'
+    },
     header: {
-        background: 'linear-gradient(to top, var(--indigo), var(--dullIndigo))',
-        height: '25%',
-        padding: '20px'
+        height: '200px',
+        padding: '20px',
     },
     pageTitle: {
         color: 'var(--silver)',
@@ -45,12 +47,12 @@ const styles = {
     },
     draftSetting: {
         color: 'var(--grey)',
-        fontSize: '10px'
+        fontSize: '10px',
     },
     draftItem: {
         backgroundColor: 'var(--transparentBlue)',
         padding: '5px 10px 5px 10px',
-        borderRadius: '10px'
+        borderRadius: '10px',
     },
     draftList: {
         backgroundColor: 'var(--mediumGrey)',
@@ -60,6 +62,6 @@ const styles = {
         overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        gap: '10px'
-    },
+        gap: '10px',
+    } as React.CSSProperties,
 };

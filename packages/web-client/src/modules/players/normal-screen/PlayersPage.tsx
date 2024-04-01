@@ -86,6 +86,7 @@ const styles = {
         borderRadius: '10px',
         marginTop: '10px',
         padding: '10px',
-        height: 'calc(100%)'
+        height: 'calc(100%)',
+        overflow: 'auto'
     } as React.CSSProperties,
 };

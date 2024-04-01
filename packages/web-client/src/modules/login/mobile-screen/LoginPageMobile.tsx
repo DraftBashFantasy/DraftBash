@@ -11,9 +11,9 @@ export const LoginPageMobile = () => {
 
 const styles = {
     loginPage: {
-        backgroundColor: 'var(--grey)',
+        backgroundColor: 'var(--lightGrey)',
         padding: '50px 60px 50px 60px',
         height: '100vh',
         overflowY: 'auto',
-    }
+    } as React.CSSProperties
 };
