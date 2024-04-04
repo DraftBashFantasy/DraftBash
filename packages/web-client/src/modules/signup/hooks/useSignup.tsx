@@ -7,7 +7,7 @@ import { UserCredentials } from '../../../../../business/src/value-objects';
 export const useSignup = () => {
     const [signupError, setSignupError] = useState<string | null>(null);
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login, setIsAuthenticated } = useAuth();
     const validateJwtToken = useJwtTokenValidator();
 
     const handleSignup = async (username: string, email: string, password: string, confirmPassword: string) => {
@@ -34,8 +34,8 @@ export const useSignup = () => {
                     setSignupError(errorData.error);
                 } else {
                     const data = await response.json();
-                    login(data.jwtToken);
-                    validateJwtToken(data.jwtToken);
+                    localStorage.setItem('jwtToken', data.jwtToken);
+                    setIsAuthenticated(true);
                     navigate('/');
                 }
             } catch (error: any) {

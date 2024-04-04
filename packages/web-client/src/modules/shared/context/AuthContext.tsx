@@ -3,6 +3,7 @@ import { createContext } from 'react';
 import { UserResponse } from '../../../../../contracts';
 
 export interface AuthContextProps {
+    setIsAuthenticated: (isAuthenticated: boolean) => void;
     isAuthenticated: boolean;
     login: (jwtToken: string) => void;
     logout: () => void;

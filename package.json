@@ -10,7 +10,8 @@
         "dev:client": "npm run dev -w @draftbash/web-client",
         "show:database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash",
         "build:client": "npm run build -w @draftbash/web-client",
-        "start": "node dist/server/src/app.js"
+        "start": "node dist/server/src/app.js",
+        "migrate:database": "npx prisma migrate dev --schema=./packages/infrastructure/src/persistence/schema.prisma --name migration"
     },
     "keywords": [],
     "author": "",
