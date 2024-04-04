@@ -21,12 +21,15 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Set up environment variables
+        run: |
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+
       - name: npm install, build, and test
         run: |
           npm install
           npm run migrate:database
           npm run build:server
-
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
