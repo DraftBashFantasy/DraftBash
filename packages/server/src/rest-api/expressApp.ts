@@ -9,6 +9,7 @@ dotenv.config();
 
 export const expressApp = express();
 
+// CORS
 expressApp.use(
     cors(),
 );
