@@ -20,5 +20,5 @@ expressApp.use('/api/v1/users', usersRouter);
 expressApp.use('/api/v1/mock-drafts', mockDraftsRouter);
 
 expressApp.get('/', (req, res) => {
-    res.send("The Draftbash api" + process.env.DATABASE_URL);
+    res.send("The Draftbash api");
 });
