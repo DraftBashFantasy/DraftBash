@@ -25,7 +25,7 @@ export const useLogin = () => {
             } else {
                 const data = await response.json();
                 login(data.jwtToken);
-                validateJwtToken(data.jwtToken);
+                await validateJwtToken(data.jwtToken);
                 navigate('/');
             }
         } catch (error) {
