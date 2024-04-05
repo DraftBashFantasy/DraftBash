@@ -10,7 +10,7 @@ export type {
     UpdateMockDraftRequest,
     CreateUserRequest,
 } from './src/rest-api/requests';
-export type { UserResponse, MockDraftResponse } from './src/rest-api/responses';
+export type { UserResponse, MockDraftResponse, PlayerResponse, GamelogResponse } from './src/rest-api/responses';
 export type {
     ICreateMockDraftsUseCase,
     IDeleteMockDraftsUseCase,

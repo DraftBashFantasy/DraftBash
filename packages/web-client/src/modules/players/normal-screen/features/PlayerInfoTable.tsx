@@ -1,121 +1,181 @@
+import { PlayerResponse } from "../../../../../../contracts";
 import { PlayerModal } from "../../../shared";
 
-export const PlayerInfoTable = () => {
+interface Props {
+    players: PlayerResponse[]
+}
+
+export const PlayerInfoTable = (props: Props) => {
     return (
-        <table style={{overflow: 'auto'}}>
-            <thead>
-                <tr>
-                    <th style={styles.tableHeader}>Rank</th>
-                    <th style={{ ...styles.tableHeader, ...{ textAlign: 'left', width: '25%', minWidth: '220px' } }}>Player</th>
-                    <th
-                        style={{
-                            ...styles.tableHeader,
-                            ...{
-                                textAlign: 'left',
-                                borderLeft: '1px solid var(--grey)',
-                                borderRight: '1px solid var(--grey)',
-                                width: '20%',
-                                minWidth: '200px',
-                            },
-                        }}
-                    >
-                        Year
-                    </th>
-                    <th style={styles.tableHeader}>GP</th>
-                    <th style={styles.tableHeader}>MIN</th>
-                    <th style={styles.tableHeader}>PTS</th>
-                    <th style={styles.tableHeader}>AST</th>
-                    <th style={styles.tableHeader}>REB</th>
-                    <th style={styles.tableHeader}>BLK</th>
-                    <th style={styles.tableHeader}>STL</th>
-                    <th style={styles.tableHeader}>TO</th>
-                    <th style={styles.tableHeader}>FG%</th>
-                    <th style={styles.tableHeader}>FT%</th>
-                    <th style={styles.tableHeader}>3PM</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style={{ ...styles.tableDataStatistic, ...{ textAlign: 'right' } }}>1</td>
-                    <td style={{ ...styles.tableDataStatistic, ...{ position: 'relative' } }}>
-                        <PlayerModal />
-                    </td>
-                    <td
-                        style={{
-                            ...styles.tableDataStatistic,
-                            ...{
-                                textAlign: 'left',
-                                borderLeft: '1px solid var(--grey)',
-                                borderRight: '1px solid var(--grey)',
-                                color: 'var(--darkGrey)',
-                                fontWeight: '600',
-                            },
-                        }}
-                    >
-                        2023 Season Averages
-                    </td>
-                    <td style={styles.tableDataStatistic}>45</td>
-                    <td style={styles.tableDataStatistic}>36.5</td>
-                    <td style={styles.tableDataStatistic}>25.4</td>
-                    <td style={styles.tableDataStatistic}>7.9</td>
-                    <td style={styles.tableDataStatistic}>7.9</td>
-                    <td style={styles.tableDataStatistic}>0.9</td>
-                    <td style={styles.tableDataStatistic}>1.1</td>
-                    <td style={styles.tableDataStatistic}>51.3</td>
-                    <td style={styles.tableDataStatistic}>69.2</td>
-                    <td style={styles.tableDataStatistic}>2.3</td>
-                    <td style={styles.tableDataStatistic}>2.3</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td
-                        style={{
-                            ...styles.tableDataProjection,
-                            ...{
-                                textAlign: 'left',
-                                borderLeft: '1px solid var(--grey)',
-                                borderRight: '1px solid var(--grey)',
-                                color: 'var(--darkGrey)',
-                                fontWeight: '600',
-                            },
-                        }}
-                    >
-                        2024 Projections
-                    </td>
-                    <td style={styles.tableDataProjection}>45</td>
-                    <td style={styles.tableDataProjection}>36.5</td>
-                    <td style={styles.tableDataProjection}>25.4</td>
-                    <td style={styles.tableDataProjection}>7.9</td>
-                    <td style={styles.tableDataProjection}>7.9</td>
-                    <td style={styles.tableDataProjection}>0.9</td>
-                    <td style={styles.tableDataProjection}>1.1</td>
-                    <td style={styles.tableDataProjection}>51.3</td>
-                    <td style={styles.tableDataProjection}>69.2</td>
-                    <td style={styles.tableDataProjection}>2.3</td>
-                    <td style={styles.tableDataProjection}>2.3</td>
-                </tr>
-                <tr>
-                    <td style={{ borderBottom: '1px solid var(--grey)' }}></td>
-                    <td style={{ borderBottom: '1px solid var(--grey)' }}></td>
-                    <td colSpan={12} style={styles.news}>
-                        <p style={{ color: 'var(--darkGrey)', fontWeight: '600', fontSize: '15px' }}>
-                            Fantasy Outlook:
-                        </p>
-                        <p style={{ fontSize: '12px', color: 'var(--mediumGrey)' }}>
-                            Jokic is the reigning NBA Finals MVP, and before that the two-time NBA MVP, but he has been
-                            the fantasy basketball MVP for all three of those seasons. He has been the most consistent,
-                            unstoppable force in the league, averaging 26.0 PPG, 12.2 RPG, 8.7 APG over the last three
-                            campaigns. He increased his distribution last season, coming within two tenths of an assist
-                            of averaging a triple-double in truth, and with the way he dominated the postseason it is
-                            clear he actually has even a higher gear he can reach when called upon. And remarkably,
-                            Jokic is just now reaching his peak prime years at 28 years old...so, despite holding the
-                            crown, he still has upside.
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <ul>
+            {props.players.map((player, index) => (
+                <table key={index} style={{ overflow: 'auto' }}>
+                    <thead>
+                        <tr>
+                            <th style={styles.tableHeader}>Rank</th>
+                            <th
+                                style={{
+                                    ...styles.tableHeader,
+                                    ...{ textAlign: 'left', width: '25%', minWidth: '260px' },
+                                }}
+                            >
+                                Player
+                            </th>
+                            <th
+                                style={{
+                                    ...styles.tableHeader,
+                                    ...{
+                                        textAlign: 'left',
+                                        borderLeft: '1px solid var(--grey)',
+                                        borderRight: '1px solid var(--grey)',
+                                        width: '20%',
+                                        minWidth: '200px',
+                                    },
+                                }}
+                            >
+                                Year
+                            </th>
+                            <th style={styles.tableHeader}>GP</th>
+                            <th style={styles.tableHeader}>MIN</th>
+                            <th style={styles.tableHeader}>PTS</th>
+                            <th style={styles.tableHeader}>AST</th>
+                            <th style={styles.tableHeader}>REB</th>
+                            <th style={styles.tableHeader}>BLK</th>
+                            <th style={styles.tableHeader}>STL</th>
+                            <th style={styles.tableHeader}>TO</th>
+                            <th style={styles.tableHeader}>FG%</th>
+                            <th style={styles.tableHeader}>FT%</th>
+                            <th style={styles.tableHeader}>3PM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{ ...styles.tableDataStatistic, ...{ textAlign: 'right' } }}>{index + 1}</td>
+                            <td style={{ ...styles.tableDataStatistic, ...{ position: 'relative' } }}>
+                                <PlayerModal player={player} />
+                            </td>
+                            <td
+                                style={{
+                                    ...styles.tableDataStatistic,
+                                    ...{
+                                        textAlign: 'left',
+                                        borderLeft: '1px solid var(--grey)',
+                                        borderRight: '1px solid var(--grey)',
+                                        color: 'var(--darkGrey)',
+                                        fontWeight: '600',
+                                    },
+                                }}
+                            >
+                                2023 Season Averages
+                            </td>
+                            <td style={styles.tableDataStatistic}>{player.seasonTotals?.gamesPlayed}</td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.minutes / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.points / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.assists / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.rebounds / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.blocks / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.steals / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.turnovers / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {`${(100 * player.seasonTotals?.fieldGoalPercentage).toFixed(1)}`}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {`${(100 * player.seasonTotals?.freeThrowPercentage).toFixed(1)}`}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonTotals?.threesMade / player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td
+                                style={{
+                                    ...styles.tableDataProjection,
+                                    ...{
+                                        textAlign: 'left',
+                                        borderLeft: '1px solid var(--grey)',
+                                        borderRight: '1px solid var(--grey)',
+                                        color: 'var(--darkGrey)',
+                                        fontWeight: '600',
+                                    },
+                                }}
+                            >
+                                2024 Projections
+                            </td>
+                            <td style={styles.tableDataStatistic}>{player.seasonProjections?.gamesPlayed}</td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.minutes / player.seasonProjections?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.points / player.seasonProjections?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.assists / player.seasonProjections?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.rebounds / player.seasonProjections?.gamesPlayed).toFixed(
+                                    1
+                                )}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.blocks / player.seasonProjections?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.steals / player.seasonProjections?.gamesPlayed).toFixed(1)}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.turnovers / player.seasonProjections?.gamesPlayed).toFixed(
+                                    1
+                                )}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {`${(100 * player.seasonProjections?.fieldGoalPercentage).toFixed(1)}`}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {`${(100 * player.seasonProjections?.freeThrowPercentage).toFixed(1)}`}
+                            </td>
+                            <td style={styles.tableDataStatistic}>
+                                {(player.seasonProjections?.threesMade / player.seasonProjections?.gamesPlayed).toFixed(
+                                    1
+                                )}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{ borderBottom: '1px solid var(--grey)' }}></td>
+                            <td style={{ borderBottom: '1px solid var(--grey)' }}></td>
+                            <td colSpan={12} style={styles.news}>
+                                <p style={{ color: 'var(--darkGrey)', fontWeight: '600', fontSize: '15px' }}>
+                                    Fantasy Outlook:
+                                </p>
+                                <p style={{ fontSize: '12px', color: 'var(--mediumGrey)' }}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                    deserunt mollit anim id est laborum.
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            ))}
+        </ul>
     );
 };
 

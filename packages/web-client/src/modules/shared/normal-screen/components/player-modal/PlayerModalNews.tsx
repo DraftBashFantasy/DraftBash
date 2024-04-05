@@ -3,10 +3,10 @@ export const PlayerModalNews = () => {
         <div style={styles.container}>
             <h5 style={styles.title}>Recent News</h5>
             <p style={styles.text}>
-                Jokic (hip/wrist) is probable for Sunday's game against the Cavaliers. Spin: Jokic is battling
-                inflammation in his left hip and his right wrist. He looked noticeably uncomfortable Friday against
-                Minnesota, yet still managed to score 32 points with 10 rebounds, five assists, two steals and one
-                block.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur.
             </p>
         </div>
     );

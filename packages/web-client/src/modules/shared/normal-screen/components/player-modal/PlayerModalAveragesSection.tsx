@@ -1,4 +1,10 @@
-export const PlayerModalAveragesSection = () => {
+import { PlayerResponse } from "../../../../../../../contracts";
+
+interface Props {
+    player: PlayerResponse;
+}
+
+export const PlayerModalAveragesSection = (props: Props) => {
     return (
         <div style={styles.container}>
             <h5 style={styles.title}>Season Averages</h5>
@@ -19,16 +25,36 @@ export const PlayerModalAveragesSection = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={styles.tableData}>36.5</td>
-                        <td style={styles.tableData}>25.4</td>
-                        <td style={styles.tableData}>7.9</td>
-                        <td style={styles.tableData}>7.9</td>
-                        <td style={styles.tableData}>1.1</td>
-                        <td style={styles.tableData}>0.6</td>
-                        <td style={styles.tableData}>3.7</td>
-                        <td style={styles.tableData}>51.3%</td>
-                        <td style={styles.tableData}>75.4%</td>
-                        <td style={styles.tableData}>2.3</td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.minutes / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.points / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.assists / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.rebounds / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.blocks / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.steals / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.turnovers / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
+                        <td style={styles.tableData}>
+                            {`${(100 * props.player.seasonTotals?.fieldGoalPercentage).toFixed(1)}`}
+                        </td>
+                        <td style={styles.tableData}>
+                            {`${(100 * props.player.seasonTotals?.freeThrowPercentage).toFixed(1)}`}
+                        </td>
+                        <td style={styles.tableData}>
+                            {(props.player.seasonTotals?.threesMade / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                        </td>
                     </tr>
                 </tbody>
             </table>
