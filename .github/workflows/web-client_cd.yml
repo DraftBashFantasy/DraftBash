@@ -17,7 +17,7 @@ jobs:
           lfs: false
       - name: Set up environment variables
         run: |
-          echo "DATABASE_URL=" > .env
+          echo "VITE_REACT_API_URL=https://draftbashfantasyapi.azurewebsites.net/" > .env
       - name: Install dependencies and build client
         run: |
           npm install
