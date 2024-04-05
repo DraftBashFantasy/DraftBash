@@ -1,6 +1,84 @@
+import React, { useEffect } from 'react';
+import { GamelogResponse } from '../../../../../../../contracts';
 
+interface Props {
+    gamelogs: GamelogResponse[];
+}
 
-export const PlayerModalGamelogs = () => {
+export const PlayerModalGamelogs = (props: Props) => {
+    const formatDate = (date: string) => {
+        const dateArray = date.split('-');
+        const month = dateArray[1];
+        const day = dateArray[2];
+        return `${month}/${day}`;
+    };
+
+    const getColorForValue = (value: number | string, ranges: [number, number, string][]) => {
+        for (const [min, max, color] of ranges) {
+            if (typeof value === 'number' && value >= min && value <= max) {
+                return color;
+            }
+        }
+        return '';
+    };
+
+    const getCellStyle = (value: number | string, ranges: [number, number, string][]) => {
+        const color = getColorForValue(value, ranges);
+        return { ...styles.tableData, color };
+    };
+
+    // Define color ranges for each stat
+    const minutesPlayedRanges: [number, number, string][] = [
+        [0, 24, 'red'],
+        [25, 29, 'var(--gold)'],
+        [30, Infinity, 'var(--brightGreen)'],
+    ];
+    const pointsRanges: [number, number, string][] = [
+        [0, 11, 'red'],
+        [12, 19, 'var(--gold)'],
+        [20, Infinity, 'var(--brightGreen)'],
+    ];
+    const reboundsRanges: [number, number, string][] = [
+        [0, 4, 'red'],
+        [5, 7, 'var(--gold)'],
+        [8, Infinity, 'var(--brightGreen)'],
+    ];
+    const assistsRanges: [number, number, string][] = [
+        [0, 2, 'red'],
+        [3, 4, 'var(--gold)'],
+        [5, Infinity, 'var(--brightGreen)'],
+    ];
+    const stealsRanges: [number, number, string][] = [
+        [0, 0, 'red'],
+        [1, 1, 'var(--gold)'],
+        [2, Infinity, 'var(--brightGreen)'],
+    ];
+    const blocksRanges: [number, number, string][] = [
+        [0, 0, 'red'],
+        [1, 1, 'var(--gold)'],
+        [2, Infinity, 'var(--brightGreen)'],
+    ];
+    const threePointersRanges: [number, number, string][] = [
+        [0, 0, 'red'],
+        [1, 1, 'var(--gold)'],
+        [2, Infinity, 'var(--brightGreen)'],
+    ];
+    const fieldGoalPercentageRanges: [number, number, string][] = [
+        [0, 0.4, 'red'],
+        [0.41, 0.5, 'var(--gold)'],
+        [0.51, Infinity, 'var(--brightGreen)'],
+    ];
+    const freeThrowPercentageRanges: [number, number, string][] = [
+        [0, 0.65, 'red'],
+        [0.66, 0.85, 'var(--gold)'],
+        [0.86, Infinity, 'var(--brightGreen)'],
+    ];
+    // Add ranges for other stats similarly...
+
+    useEffect(() => {
+        console.log(props.gamelogs);
+    }, [props.gamelogs]);
+
     return (
         <div style={styles.container}>
             <div style={styles.header}>
@@ -21,27 +99,45 @@ export const PlayerModalGamelogs = () => {
                         <th style={styles.tableHeader}>AST</th>
                         <th style={styles.tableHeader}>STL</th>
                         <th style={styles.tableHeader}>BLK</th>
-                        <th style={styles.tableHeader}>TO</th>
+                        <th style={styles.tableHeader}>3PM</th>
                         <th style={styles.tableHeader}>FG%</th>
                         <th style={styles.tableHeader}>FT%</th>
-                        <th style={styles.tableHeader}>3PM</th>
+                        {/* Add headers for other stats */}
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style={styles.tableData}>3/29</td>
-                        <td style={styles.tableData}>MIN</td>
-                        <td style={styles.tableData}>36.5</td>
-                        <td style={styles.tableData}>25.4</td>
-                        <td style={styles.tableData}>7.9</td>
-                        <td style={styles.tableData}>7.9</td>
-                        <td style={styles.tableData}>1.1</td>
-                        <td style={styles.tableData}>0.6</td>
-                        <td style={styles.tableData}>3.7</td>
-                        <td style={styles.tableData}>51.3%</td>
-                        <td style={styles.tableData}>75.4%</td>
-                        <td style={styles.tableData}>2.3</td>
-                    </tr>
+                    {props.gamelogs.map((gamelog, index) => (
+                        <tr key={index}>
+                            <td style={getCellStyle(formatDate(gamelog.date), [])}>{formatDate(gamelog.date)}</td>
+                            <td style={getCellStyle(gamelog.opponentTeam, [])}>{gamelog.opponentTeam}</td>
+                            <td style={getCellStyle(gamelog.minutesPlayed, minutesPlayedRanges)}>
+                                {gamelog.minutesPlayed.toFixed(1)}
+                            </td>
+                            <td style={getCellStyle(gamelog.points, pointsRanges)}>{gamelog.points}</td>
+                            <td style={getCellStyle(gamelog.rebounds, reboundsRanges)}>{gamelog.rebounds}</td>
+                            <td style={getCellStyle(gamelog.assists, assistsRanges)}>{gamelog.assists}</td>
+                            <td style={getCellStyle(gamelog.steals, stealsRanges)}>{gamelog.steals}</td>
+                            <td style={getCellStyle(gamelog.blocks, blocksRanges)}>{gamelog.blocks}</td>
+                            <td style={getCellStyle(gamelog.threesMade, threePointersRanges)}>{gamelog.threesMade}</td>
+                            <td
+                                style={getCellStyle(
+                                    gamelog.fieldGoalsMade / gamelog.fieldGoalsAttempted,
+                                    fieldGoalPercentageRanges
+                                )}
+                            >
+                                {((100 * gamelog.fieldGoalsMade) / gamelog.fieldGoalsAttempted).toFixed(1)}
+                            </td>
+                            <td
+                                style={getCellStyle(
+                                    gamelog.freeThrowsMade / gamelog.freeThrowsAttempted,
+                                    freeThrowPercentageRanges
+                                )}
+                            >
+                                {((100 * gamelog.freeThrowsMade) / gamelog.freeThrowsAttempted).toFixed(1)}
+                            </td>
+                            {/* Render other cells similarly */}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
@@ -75,7 +171,6 @@ const styles = {
     } as React.CSSProperties,
     tableData: {
         textAlign: 'center',
-        color: 'var(--mediumGrey)',
         fontSize: '15px',
         borderBottom: '1px solid var(--grey)',
         padding: '3px 10px 3px 10px',

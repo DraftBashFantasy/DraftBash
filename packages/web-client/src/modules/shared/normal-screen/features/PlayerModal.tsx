@@ -1,21 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PlayerModalHeader } from '../components/player-modal/PlayerModalHeader';
 import { PlayerModalAveragesSection } from '../components/player-modal/PlayerModalAveragesSection';
 import { PlayerModalNews } from '../components/player-modal/PlayerModalNews';
 import { PlayerModalGamelogs } from '../components/player-modal/PlayerModalGamelogs';
+import { GamelogResponse, PlayerResponse } from '../../../../../..//contracts';
+import { useFetchPlayerGamelogs } from '../../../players';
 
-export const PlayerModal = () => {
+interface Props {
+    player: PlayerResponse;
+}
+
+export const PlayerModal = (props: Props) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [playerGamelogs, setPlayerGamelogs] = useState<GamelogResponse[]>([]);
+    const { gamelogs, fetchGamelogs } = useFetchPlayerGamelogs();
+
+    useEffect(() => {
+        if (isModalOpen) {
+            fetchGamelogs(props.player.playerId);
+        }
+    }, [isModalOpen]);
 
     return (
         <>
-            <div style={{ display: 'flex', position: 'absolute', gap: '10px'}}>
+            <div style={{ display: 'flex', position: 'absolute', gap: '10px' }}>
                 <div style={styles.playerPictureFrame}>
                     <img
                         style={styles.playerPicture}
-                        src="https://cdn.nba.com/headshots/nba/latest/260x190/2544.png"
-                        alt="Lebron James"
+                        src={`https://cdn.nba.com/headshots/nba/latest/260x190/${props.player.nbaApiPlayerId}.png`}
+                        alt={`${props.player.firstName} ${props.player.lastName}`}
                     />
                 </div>
                 <div>
@@ -25,21 +39,27 @@ export const PlayerModal = () => {
                         onMouseLeave={() => setIsHovered(false)}
                         onClick={() => setIsModalOpen(!isModalOpen)}
                     >
-                        Lebron James
+                        {props.player.firstName} {props.player.lastName}
                     </p>
                     <div style={styles.teamSection}>
-                        <img src="/team-logos/LAL.svg" alt="Los Angeles Lakers Logo" style={styles.teamLogo} />
-                        <p style={{ color: 'var(--mediumGrey)', fontWeight: '500' }}>Lakers | C</p>
+                        <img
+                            src={`/team-logos/${props.player.team.abbreviation}.svg`}
+                            alt={`${props.player.team.abbreviation} logo`}
+                            style={styles.teamLogo}
+                        />
+                        <p style={{ color: 'var(--mediumGrey)', fontWeight: '500' }}>
+                            {props.player.team.abbreviation} | {props.player.fantasyPositions.join(', ')}
+                        </p>
                     </div>
                 </div>
             </div>
             {isModalOpen && (
                 <div onClick={() => setIsModalOpen(false)} style={styles.modalBackground}>
                     <div style={styles.modalContent}>
-                        <PlayerModalHeader />
-                        <PlayerModalAveragesSection />
+                        <PlayerModalHeader player={props.player} />
+                        <PlayerModalAveragesSection player={props.player} />
                         <PlayerModalNews />
-                        <PlayerModalGamelogs />
+                        <PlayerModalGamelogs gamelogs={gamelogs} />
                     </div>
                 </div>
             )}
@@ -53,7 +73,7 @@ const styles = {
         position: 'absolute',
         left: '-10px',
         bottom: '0px',
-    },
+    } as React.CSSProperties,
     playerPictureFrame: {
         position: 'relative',
         width: '60px',
@@ -64,22 +84,26 @@ const styles = {
     } as React.CSSProperties,
     teamLogo: {
         height: '30px',
-    },
+    } as React.CSSProperties,
     teamSection: {
         display: 'flex',
         gap: '10px',
-    },
+    } as React.CSSProperties,
     modalButton: {
         color: 'var(--dullIndigo)',
         cursor: 'pointer',
         transition: '0.2s',
         fontSize: '18px',
         textAlign: 'left',
-    },
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        width: '170px',
+        textOverflow: 'ellipsis',
+    } as React.CSSProperties,
     modalButtonHovered: {
         color: 'var(--indigo)',
         cursor: 'pointer',
-    },
+    } as React.CSSProperties,
     modalBackground: {
         position: 'fixed',
         top: 0,
@@ -103,5 +127,6 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         gap: '20px',
+        overflow: 'auto'
     } as React.CSSProperties,
 };

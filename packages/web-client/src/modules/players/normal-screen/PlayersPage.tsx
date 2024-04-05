@@ -3,9 +3,13 @@ import { TextInput } from '../../shared';
 import PickList from '../../shared/normal-screen/components/lists/PickList';
 import { RadioInput } from '../../shared/normal-screen/components/RadioInput';
 import { PlayerInfoTable } from './features/PlayerInfoTable';
+import { useFetchPlayers } from '../hooks/useFetchPlayers';
 
 
 export const PlayersPage = () => {
+
+    const { players } = useFetchPlayers();
+
     return (
         <PageFrame>
             <div style={styles.settingsSection}>
@@ -45,8 +49,7 @@ export const PlayersPage = () => {
                 </div>
             </div>
             <div style={styles.playersInfoSection}>
-                <PlayerInfoTable />
-                <PlayerInfoTable />
+                <PlayerInfoTable players={players} />
             </div>
         </PageFrame>
     );
