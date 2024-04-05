@@ -19,6 +19,9 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Set up environment variables
+        run: |
+          echo "DATABASE_URL=" > .env
       - name: Install dependencies and build client
         run: |
           npm install
