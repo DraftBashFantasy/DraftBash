@@ -3,7 +3,6 @@ import { AuthProvider } from './modules/shared';
 import { AppRoutes } from './routes/AppRoutes';
 import { AppRoutesMobile } from './routes/AppRoutesMobile';
 
-// Testing branches
 export const App = () => {
     return (
         <AuthProvider>
