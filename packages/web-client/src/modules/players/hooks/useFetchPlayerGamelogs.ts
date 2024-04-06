@@ -13,7 +13,7 @@ export const useFetchPlayerGamelogs = () => {
     const fetchGamelogs = async (playerId: number) => {
         try {
             const response = await fetch(
-                (import.meta as any).env.VITE_REACT_API_URL + `/players/${playerId}/gamelogs?season=${season}`
+                (import.meta as any).env.VITE_REACT_PLAYERS_API_URL + `/players/${playerId}/gamelogs?season=${season}`
             );
             const data: GamelogResponse[] = await response.json();
             setGamelogs(data);
