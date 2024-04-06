@@ -23,7 +23,7 @@ jobs:
       - name: Set up environment variables
         run: |
           echo "VITE_REACT_API_URL=https://draftbashfantasyapi.azurewebsites.net/api/v1" > packages/web-client/.env
-          echo "VITE_REACT_PLAYERS_API_URL=https://draftbash-nba-players-api.azurewebsites.net/api/v1" > packages/web-client/.env
+          echo "VITE_REACT_PLAYERS_API_URL=https://draftbash-nba-players-api.azurewebsites.net/api/v1" >> packages/web-client/.env
       - name: Install dependencies and build client
         run: |
           npm install
