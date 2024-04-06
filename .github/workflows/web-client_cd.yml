@@ -20,7 +20,6 @@ jobs:
       - name: Delete existing .env file if exists
         run: |
             rm packages/web-client/.env
-            - name: Set up environment variables
       - name: Set up environment variables
         run: |
           echo "VITE_REACT_API_URL=https://draftbashfantasyapi.azurewebsites.net/api/v1" > packages/web-client/.env
