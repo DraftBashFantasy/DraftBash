@@ -7,6 +7,9 @@ on:
   push:
     paths:
       - 'packages/server/**'
+      - 'packages/business/**'
+      - 'packages/infrastructure/**'
+      - 'packages/contracts/**'
     branches:
       - main
   workflow_dispatch:
