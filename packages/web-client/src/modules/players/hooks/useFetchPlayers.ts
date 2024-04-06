@@ -9,9 +9,7 @@ export const useFetchPlayers = () => {
     useEffect(() => {
         const fetchPlayers = async () => {
             try {
-                const response = await fetch(
-                    (import.meta as any).env.VITE_REACT_API_URL + `/players`
-                );
+                const response = await fetch((import.meta as any).env.VITE_REACT_PLAYERS_API_URL + `/players`);
                 const data: PlayerResponse[] = await response.json();
                 setPlayers(data);
             } catch (error: unknown) {

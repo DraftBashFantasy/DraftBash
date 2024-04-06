@@ -17,12 +17,7 @@ jobs:
           lfs: false
       - name: Delete existing .env file if exists
         run: |
-          if [ -f ".env" ]; then
             rm .env
-          fi
-      - name: Create .env file
-        run: |
-          echo "VITE_REACT_API_URL=https://draftbashfantasyapi.azurewebsites.net" > .env
       - name: Install dependencies and build client
         run: |
           npm install
