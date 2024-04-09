@@ -1,5 +1,5 @@
-import { MockDraftEntity } from '../entities/MockDraftEntity';
-import { DraftSettings, MockDraft } from '../value-objects';
+import { MockDraftEntity } from '../../../business/src/entities/MockDraftEntity';
+import { DraftSettings, MockDraft } from '../../../business/src/value-objects';
 
 export interface IMockDraftsRepository {
     insertMockDraft(mockDraft: MockDraft, draftOrder: number[]): Promise<number>;

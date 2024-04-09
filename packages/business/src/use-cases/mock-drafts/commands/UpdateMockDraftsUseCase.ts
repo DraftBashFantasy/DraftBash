@@ -1,6 +1,6 @@
 import { UpdateMockDraftRequest, IUpdateMockDraftsUseCase } from '../../../../../contracts';
 import { DraftSettings } from '../../../value-objects';
-import { IMockDraftsRepository } from '../../../persistence';
+import { IMockDraftsRepository } from '../../../../../contracts/src/persistence';
 import { DraftOrderGeneratorFactory, IDraftOrderGenerator } from '../../../services';
 
 export class UpdateMockDraftsUseCase implements IUpdateMockDraftsUseCase {

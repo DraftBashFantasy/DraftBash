@@ -1,7 +1,7 @@
 import { IJwtAuthTokensService, IBcryptService, ILoginUsersUseCase } from '../../../../../contracts';
 import { UserEntity } from '../../../entities';
 import { InvalidUserCredentialsError } from '../../../exceptions';
-import { IUsersRepository } from '../../../persistence';
+import { IUsersRepository } from '../../../../../contracts/src/persistence';
 
 // Handles user login business logic.
 export class LoginUsersUseCase implements ILoginUsersUseCase {

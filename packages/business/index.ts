@@ -12,7 +12,7 @@ export {
     IDraftUsersRepository,
     IMockDraftsRepository,
     IUsersRepository,
-} from './src/persistence';
+} from '../contracts/src/persistence';
 export {
     DraftOrderGeneratorFactory,
     LinearDraftOrderGenerator,

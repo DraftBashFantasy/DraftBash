@@ -1,5 +1,5 @@
-import { UserEntity } from '../entities';
-import { UserCredentials } from '../value-objects';
+import { UserEntity } from '../../../business/src/entities';
+import { UserCredentials } from '../../../business/src/value-objects';
 
 export interface IUsersRepository {
     getUsernamesLikeUsername(username: string): Promise<string[]>;

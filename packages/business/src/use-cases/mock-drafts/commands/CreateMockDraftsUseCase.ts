@@ -1,5 +1,5 @@
 import { CreateMockDraftRequest, ICreateMockDraftsUseCase } from '../../../../../contracts'
-import { IDraftUsersRepository, IMockDraftsRepository } from '../../../persistence';
+import { IDraftUsersRepository, IMockDraftsRepository } from '../../../../../contracts/src/persistence';
 import { DraftOrderGeneratorFactory } from '../../../services';
 import { DraftSettings, MockDraft } from '../../../value-objects';
 

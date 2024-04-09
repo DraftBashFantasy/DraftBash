@@ -1,7 +1,7 @@
 import { IGetMockDraftUseCase, UserResponse, MockDraftResponse } from '../../../../../contracts';
 import { UserEntity } from '../../../entities';
 import { BadRequestError, DraftNotFoundError } from '../../../exceptions';
-import { IUsersRepository, IMockDraftsRepository } from '../../../persistence';
+import { IUsersRepository, IMockDraftsRepository } from '../../../../../contracts/src/persistence';
 
 export class GetMockDraftsUseCase implements IGetMockDraftUseCase {
     private readonly mockDraftsRepository: IMockDraftsRepository;

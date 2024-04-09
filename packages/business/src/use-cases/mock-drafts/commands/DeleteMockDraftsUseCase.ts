@@ -1,4 +1,4 @@
-import { IMockDraftsRepository } from '../../../persistence';
+import { IMockDraftsRepository } from '../../../../../contracts/src/persistence';
 
 export class DeleteMockDraftsUseCase {
     private readonly mockDraftsRepository: IMockDraftsRepository;

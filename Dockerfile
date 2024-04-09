@@ -25,4 +25,4 @@ RUN npx tsc
 EXPOSE 3000
 
 # Command to run the application
-CMD ["sh", "-c", "npx prisma migrate dev --schema=./packages/infrastructure/src/persistence/schema.prisma --name migration && node dist/server/src/app.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy --schema=./packages/infrastructure/src/persistence/schema.prisma && node dist/server/src/app.js"]

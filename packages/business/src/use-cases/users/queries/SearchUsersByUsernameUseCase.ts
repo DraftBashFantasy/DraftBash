@@ -1,6 +1,6 @@
 import { UserResponse, ISearchUsersByUsernameUseCase } from '../../../../../contracts';
 import { UserEntity } from '../../../entities';
-import { IUsersRepository } from '../../../persistence';
+import { IUsersRepository } from '../../../../../contracts/src/persistence';
 import { UserNotFoundByUsernameError } from '../../../exceptions';
 
 export class SearchUsersByUsernameUseCase implements ISearchUsersByUsernameUseCase {

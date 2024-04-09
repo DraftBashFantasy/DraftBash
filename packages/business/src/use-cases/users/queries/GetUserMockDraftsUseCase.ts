@@ -1,6 +1,6 @@
 import { MockDraftResponse, UserResponse, IGetUserMockDraftsUseCase } from '../../../../../contracts';
 import { UserEntity, MockDraftEntity } from '../../../entities';
-import { IMockDraftsRepository, IUsersRepository } from '../../../persistence';
+import { IMockDraftsRepository, IUsersRepository } from '../../../../../contracts/src/persistence';
 
 export class GetUserMockDraftsUseCase implements IGetUserMockDraftsUseCase {
     private readonly mockDraftsRepository: IMockDraftsRepository;

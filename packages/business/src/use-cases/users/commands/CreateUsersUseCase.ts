@@ -5,7 +5,7 @@ import {
     ICreateUsersUseCase,
 } from '../../../../../contracts';
 import { UserEntity } from '../../../entities';
-import { IUsersRepository } from '../../../persistence';
+import { IUsersRepository } from '../../../../../contracts/src/persistence';
 import { UserCredentials } from '../../../value-objects';
 import { BadRequestError } from '../../../exceptions';
 
