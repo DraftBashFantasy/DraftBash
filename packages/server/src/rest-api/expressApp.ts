@@ -23,5 +23,5 @@ expressApp.use('/api/v1/mock-drafts', mockDraftsRouter);
 expressApp.use('/api/v1/to-dos', todosRouter);
 
 expressApp.get('/', (req, res) => {
-    res.send("The Draftbash api");
+    res.send("The Draftbash API");
 });
