@@ -34,13 +34,14 @@ jobs:
       - name: Create zip archive
         run: |
           Add-Type -AssemblyName System.IO.Compression.FileSystem
-          [System.IO.Compression.ZipFile]::CreateFromDirectory('.', 'node-app.zip')
+          [System.IO.Compression.ZipFile]::CreateFromDirectory('.', 'build/node-app.zip')
+        working-directory: ${{ github.workspace }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: node-app.zip
+          path: build/node-app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,4 +71,4 @@ jobs:
         with:
           app-name: 'draftbashfantasy-api'
           slot-name: 'Production'
-          package: ${{ github.workspace }}/node-app.zip
+          package: ${{ github.workspace }}/build/node-app.zip
