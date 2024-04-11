@@ -30,8 +30,9 @@ jobs:
       
       - name: Create zip archive
         run: |
-          zip -r node-app.zip .
-      
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          [System.IO.Compression.ZipFile]::CreateFromDirectory('.', 'node-app.zip')
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
