@@ -5,6 +5,7 @@ import { usersRouter } from './routes';
 import { mockDraftsRouter } from './routes';
 import { setCache } from './middleware/cache';
 import { todosRouter } from './routes/todosRouter';
+// This is the entry point for the REST API. It creates an Express app, sets up middleware, and defines routes.
 
 dotenv.config();
 
