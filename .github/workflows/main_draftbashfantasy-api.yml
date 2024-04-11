@@ -25,6 +25,9 @@ jobs:
       - name: Remove web-client folder
         run: Remove-Item -Path packages/web-client -Recurse -Force
 
+      - name: Create build directory
+        run: mkdir build
+
       - name: npm install, build, test
         run: |
           npm install -w @draftbash/server
