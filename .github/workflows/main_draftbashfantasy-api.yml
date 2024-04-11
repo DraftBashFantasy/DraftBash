@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '14.x' # Adjust the Node.js version if needed
+          node-version: '20.x'
 
       - name: Set up environment variables
         run: |
@@ -26,9 +26,9 @@ jobs:
         run: |
           rm -rf packages/web-client
 
-      - name: npm install, build, and test
+      - name: npm install, build, test
         run: |
-          npm install --omit=dev -w @draftbash/server
+          npm install -w @draftbash/server
           npm run migrate:database
           npm run build:server
 
