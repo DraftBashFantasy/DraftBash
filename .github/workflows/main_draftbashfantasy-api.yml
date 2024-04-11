@@ -23,8 +23,7 @@ jobs:
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
 
       - name: Remove web-client folder
-        run: |
-          rm packages/web-client
+        run: Remove-Item -Path packages/web-client -Recurse -Force
 
       - name: npm install, build, test
         run: |
