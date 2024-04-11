@@ -1,4 +1,4 @@
-import { RightColumn } from "./layout/RightColumn";
+
 import { LoginForm } from "./features/LoginFormMobile";
 
 export const LoginPageMobile = () => {
@@ -11,9 +11,9 @@ export const LoginPageMobile = () => {
 
 const styles = {
     loginPage: {
-        backgroundColor: 'var(--lightGrey)',
+        backgroundColor: 'var(--grey)',
         padding: '50px 60px 50px 60px',
         height: '100vh',
         overflowY: 'auto',
-    } as React.CSSProperties
+    }
 };
