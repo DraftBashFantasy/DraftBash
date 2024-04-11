@@ -42,8 +42,8 @@ const styles = {
         display: 'flex',
         gap: '10px',
         flexDirection: 'column',
-        padding: '60px',
-        backgroundColor: 'var(--lightGrey)',
+        padding: "60px",
+        backgroundColor: 'var(--lightGrey)'
     },
     loginButton: {
         marginTop: '25px',
@@ -58,3 +58,5 @@ const styles = {
         top: '480px',
     },
 };
+
+
