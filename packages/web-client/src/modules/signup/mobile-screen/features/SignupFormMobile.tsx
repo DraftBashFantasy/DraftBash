@@ -42,13 +42,15 @@ const styles = {
         display: 'flex',
         gap: '10px',
         flexDirection: 'column',
+        padding: '60px',
+        backgroundColor: 'var(--lightGrey)',
     },
     loginButton: {
-        width: '50%',
-        marginLeft: '25%',
         marginTop: '25px',
-        backgroundColor: "var(--blue)",
-        color: "white"
+        backgroundColor: 'var(--gold)',
+        color: 'white',
+        width: '100%',
+        borderRadius: '5px'
     },
     error: {
         color: 'red',

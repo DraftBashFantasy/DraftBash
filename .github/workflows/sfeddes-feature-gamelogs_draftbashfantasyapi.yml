@@ -11,7 +11,7 @@ on:
       - 'packages/infrastructure/**'
       - 'packages/contracts/**'
     branches:
-      - main
+      - test
   workflow_dispatch:
 
 jobs:
