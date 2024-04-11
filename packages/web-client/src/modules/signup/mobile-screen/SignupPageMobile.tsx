@@ -1,9 +1,8 @@
-import { RightColumn } from './layout/RightColumn';
 
 export const SignupPageMobile = () => {
     return (
         <div style={styles.signupPage}>
-            <RightColumn />
+            
         </div>
     );
 };

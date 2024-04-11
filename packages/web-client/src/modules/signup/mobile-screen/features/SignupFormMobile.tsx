@@ -6,7 +6,7 @@ import { PasswordInput } from '../../../shared';
 import { PasswordRules } from '../components/PasswordRules';
 import { useSignup } from '../../hooks/useSignup';
 
-export const SignupForm = () => {
+export const SignupFormMobile = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
