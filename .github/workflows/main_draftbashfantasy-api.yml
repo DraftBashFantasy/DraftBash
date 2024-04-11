@@ -28,11 +28,15 @@ jobs:
           npm run migrate:database
           npm run build:server
       
+      - name: Zip files for deployment
+        run: |
+          powershell Compress-Archive -Path * -DestinationPath node-app.zip
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: .
+          path: node-app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,6 +53,10 @@ jobs:
         with:
           name: node-app
       
+      - name: Unzip files
+        run: |
+          unzip node-app.zip -d node-app
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
@@ -62,5 +70,4 @@ jobs:
         with:
           app-name: 'draftbashfantasy-api'
           slot-name: 'Production'
-          package: .
-          
+          package: node-app
