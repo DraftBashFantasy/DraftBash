@@ -24,7 +24,7 @@ jobs:
 
       - name: Remove web-client folder
         run: |
-          rm -rf packages/web-client
+          rm packages/web-client
 
       - name: npm install, build, test
         run: |

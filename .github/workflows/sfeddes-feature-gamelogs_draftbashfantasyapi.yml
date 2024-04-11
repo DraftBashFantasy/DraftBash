@@ -3,7 +3,7 @@ name: Build and deploy Node.js app to Azure Web App - draftbashfantasy-api
 on:
   push:
     branches:
-      - main
+      - test
   workflow_dispatch:
 
 jobs:
