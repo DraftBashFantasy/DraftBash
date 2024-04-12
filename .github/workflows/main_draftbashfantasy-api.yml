@@ -2,6 +2,11 @@ name: Build and deploy Node.js app to Azure Web App - draftbashfantasy-api
 
 on:
   push:
+    paths:
+      - 'packages/server/**'
+      - 'packages/business/**'
+      - 'packages/contracts/**'
+      - 'packages/infrastructure/**'
     branches:
       - main
   workflow_dispatch:
@@ -18,9 +23,6 @@ jobs:
         with:
           node-version: '20.x'
       
-      - name: Remove web-client folder
-        run: Remove-Item -Path packages/web-client -Recurse -Force
-      
       - name: Set up environment variables
         run: |
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
@@ -31,9 +33,9 @@ jobs:
           npm run migrate:database
           npm run build:server
 
-      - name: Copy web-client package to node_modules
-        run: Copy-Item -Path packages/web-client -Destination node_modules/@draftbash/web-client -Recurse
-
+      - name: Remove web-client folder
+        run: Remove-Item -Path packages/web-client -Recurse -Force
+      
       - name: Zip files
         run: Compress-Archive -Path * -DestinationPath node-app.zip
       
