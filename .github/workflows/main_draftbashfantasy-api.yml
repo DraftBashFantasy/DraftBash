@@ -30,7 +30,10 @@ jobs:
           npm install -w @draftbash/server
           npm run migrate:database
           npm run build:server
-      
+
+      - name: Copy web-client package to node_modules
+        run: Copy-Item -Path packages/web-client -Destination node_modules/@draftbash/web-client -Recurse
+
       - name: Zip files
         run: Compress-Archive -Path * -DestinationPath node-app.zip
       
