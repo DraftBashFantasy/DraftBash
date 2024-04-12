@@ -15,6 +15,15 @@ model todos {
   user            users       @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
 }
 
+model leagues {
+  league_id   Int     @id @default(autoincrement())
+  league_owner_id   Int
+  scoring_type String
+  team_count Int
+  
+  user            users       @relation(fields: [league_owner_id], references: [user_id], onDelete: Cascade)
+}
+
 model users {
   user_id                  Int        @id @default(autoincrement())
   username                String     @unique
@@ -24,6 +33,7 @@ model users {
   draft_users             draft_users[]
   draft_orders            draft_orders[]
   draft_invites           draft_invites[]
+  leagues                   leagues[]
   todos                   todos[]
 }
 

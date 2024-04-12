@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy Node.js app to Azure Web App - draftbashfantasy-api
 
 on:
@@ -7,6 +10,7 @@ on:
       - 'packages/business/**'
       - 'packages/contracts/**'
       - 'packages/infrastructure/**'
+
     branches:
       - main
   workflow_dispatch:
@@ -32,18 +36,12 @@ jobs:
           npm install -w @draftbash/server
           npm run migrate:database
           npm run build:server
-
-      - name: Remove web-client folder
-        run: Remove-Item -Path packages/web-client -Recurse -Force
-      
-      - name: Zip files
-        run: Compress-Archive -Path * -DestinationPath node-app.zip
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: node-app.zip
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -73,4 +71,4 @@ jobs:
         with:
           app-name: 'draftbashfantasy-api'
           slot-name: 'Production'
-          package: ${{ github.workspace }}/node-app.zip
+          package: .
