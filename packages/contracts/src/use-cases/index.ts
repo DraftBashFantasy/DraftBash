@@ -8,3 +8,4 @@ export type { ILoginUsersUseCase } from './users/ILoginUsersUseCase';
 export type { ISearchUsersByUsernameUseCase } from './users/ISearchUsersByUsernameUseCase';
 export type { IValidateJwtAuthTokensUseCase } from './users/IValidateJwtAuthTokensUseCase';
 export type { ICreateTodoUseCase } from './todos/ICreateTodoUseCase';
+export type { IGetLeaguesUseCase } from './leagues/IGetLeaguesUseCase';

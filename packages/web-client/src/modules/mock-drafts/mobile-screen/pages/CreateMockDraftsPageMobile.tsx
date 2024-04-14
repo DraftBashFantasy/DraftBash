@@ -182,7 +182,13 @@ const styles = {
     createButton: {
         color: 'var(--brightGreen)',
         fontWeight: '600',
-        fontSize: '20px'
+        fontSize: '20px',
+        backgroundColor: 'var(--transparentBlue)',
+        padding: '10px 20px',
+        boxShadow: '0px 5px 5px rgba(0, 0, 0, .5)',
+        borderRadius: '30px',
+
+        
     },
     pageTitle: {
         color: 'var(--silver)',
