@@ -1,8 +1,10 @@
+import { LeagueResponse } from '../../../contracts/src/rest-api/responses';
 import { BadRequestError } from '../exceptions';
 import { LeagueSettings } from '../value-objects';
 
 export class LeagueEntity {
   private leagueId: number;
+
 
   private leagueSettings: LeagueSettings;
 
@@ -28,6 +30,15 @@ export class LeagueEntity {
 
   public getTeamCount(): number {
     return this.leagueSettings.getTeamCount();
+  }
+
+  public toJson(): LeagueResponse {
+    return {
+        leagueId: this.getLeagueId(),
+        leagueOwnerId: this.getLeagueOwnerId(),
+        teamCount: this.getTeamCount(),
+        scoringType: this.getScoringType()
+    }
   }
 
 }

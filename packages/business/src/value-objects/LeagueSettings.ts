@@ -14,7 +14,7 @@ export class LeagueSettings {
         const validatedTeamCount = new IntegerInterval('teamCount', settings.teamCount, 8, 14);
         const scoringTypes = ['points', 'category'];
 
-        if (!scoringTypes.includes(settings.scoringType)) {
+        if (!scoringTypes.includes(settings.scoringType.toLowerCase())) {
             throw new BadRequestError('Invalid scoring type.');
         }
 

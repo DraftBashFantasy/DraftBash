@@ -14,7 +14,7 @@ export class LeaguesRepository implements ILeaguesRepository {
     public async getUserLeagues(userId: number): Promise<LeagueEntity[]> {
         
         const leagues = await this.db.query(
-            `SELECT league_id, league_owner_id, scoring_type, team_count WHERE 
+            `SELECT league_id, league_owner_id, scoring_type, team_count FROM leagues WHERE 
             league_owner_id = $1`, 
             [userId]
         );
@@ -30,13 +30,5 @@ export class LeaguesRepository implements ILeaguesRepository {
             leagueEntities.push(leagueEntity)
         })
         return leagueEntities
-    }
-
-    public async insertDraftInvite(draftInvite: DraftInvite): Promise<void> {
-        await this.db.query(
-            `INSERT INTO draft_invites (draft_id, user_id)
-            VALUES ($1, $2)`,
-            [draftInvite.getDraftId(), draftInvite.getUserId()],
-        );
     }
 }
