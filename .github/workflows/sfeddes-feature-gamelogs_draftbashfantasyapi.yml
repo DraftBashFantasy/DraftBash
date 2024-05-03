@@ -2,6 +2,12 @@ name: Build and deploy Node.js app to Azure Web App - draftbashfantasy-api
 
 on:
   push:
+    paths:
+      - 'packages/server/**'
+      - 'packages/business/**'
+      - 'packages/contracts/**'
+      - 'packages/infrastructure/**'
+      - '.github/workflows'
     branches:
       - test
   workflow_dispatch:
@@ -28,15 +34,11 @@ jobs:
           npm run migrate:database
           npm run build:server
       
-      - name: Create zip archive
-        run: |
-          Compress-Archive -Path * -DestinationPath node-app.zip
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: node-app.zip
+          path: packages/server
 
   deploy:
     runs-on: ubuntu-latest
@@ -66,4 +68,4 @@ jobs:
         with:
           app-name: 'draftbashfantasy-api'
           slot-name: 'Production'
-          package: ${{ github.workspace }}/node-app.zip
+          package: .
