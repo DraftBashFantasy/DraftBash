@@ -7,9 +7,9 @@ on:
       - 'packages/business/**'
       - 'packages/contracts/**'
       - 'packages/infrastructure/**'
-      - '.github/workflows/**'
+      
     branches:
-      - main
+      - test
   workflow_dispatch:
 
 jobs:

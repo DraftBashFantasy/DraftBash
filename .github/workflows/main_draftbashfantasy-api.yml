@@ -2,9 +2,15 @@ name: Build and deploy Node.js app to Azure Web App - draftbashfantasy-api
 
 on:
   push:
-    
+    paths:
+      - 'packages/server/**'
+      - 'packages/business/**'
+      - 'packages/contracts/**'
+      - 'packages/infrastructure/**'
+      - '.github/workflows/**'
+
     branches:
-      - test
+      - main
   workflow_dispatch:
 
 jobs:
