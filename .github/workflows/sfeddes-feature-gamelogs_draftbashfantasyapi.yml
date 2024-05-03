@@ -9,7 +9,7 @@ on:
       - 'packages/infrastructure/**'
       - '.github/workflows/**'
     branches:
-      - test
+      - main
   workflow_dispatch:
 
 jobs:
