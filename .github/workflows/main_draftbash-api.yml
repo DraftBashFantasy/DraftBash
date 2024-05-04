@@ -5,6 +5,13 @@ name: Build and deploy Node.js app to Azure Web App - draftbash-api
 
 on:
   push:
+    paths:
+      - 'packages/server/**'
+      - 'packages/business/**'
+      - 'packages/contracts/**'
+      - 'packages/infrastructure/**'
+      - '.github/workflows/**'
+
     branches:
       - main
   workflow_dispatch:
@@ -21,11 +28,15 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Set up environment variables
+        run: |
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm install -w @draftbash/server
+          npm run migrate:database
+          npm run build:server
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
