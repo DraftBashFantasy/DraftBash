@@ -7,14 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model todos {
-  todo_id   Int     @id @default(autoincrement())
-  user_id   Int
-  description String
-  
-  user            users       @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
-}
-
 model leagues {
   league_id   Int     @id @default(autoincrement())
   league_owner_id   Int
@@ -34,7 +26,6 @@ model users {
   draft_orders            draft_orders[]
   draft_invites           draft_invites[]
   leagues                   leagues[]
-  todos                   todos[]
 }
 
 model draft_users {
