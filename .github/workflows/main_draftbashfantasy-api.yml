@@ -10,7 +10,7 @@ on:
       - '.github/workflows/**'
 
     branches:
-      - main
+      - test
   workflow_dispatch:
 
 jobs:
