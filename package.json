@@ -11,7 +11,7 @@
         "show:database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash",
         "build:client": "npm run build -w @draftbash/web-client",
         "start": "node dist/server/src/app.js",
-        "migrate:database": "npx prisma migrate dev --schema=./packages/infrastructure/src/persistence/schema.prisma --name migration",
+        "migrate:database": "npx prisma migrate deploy --schema=./packages/infrastructure/src/persistence/schema.prisma --name migration",
         "migrate:database:dev": "docker-compose run -it server npx prisma migrate dev --schema=./packages/infrastructure/src/persistence/schema.prisma --name migration"
     },
     "keywords": [],
