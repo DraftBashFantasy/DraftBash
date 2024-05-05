@@ -41,7 +41,7 @@ jobs:
       
       - name: Zip files
         run: |
-          zip -r node-app.zip .
+          Compress-Archive -Path * -DestinationPath node-app.zip
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -56,7 +56,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write
 
     steps:
       - name: Download artifact from build job
