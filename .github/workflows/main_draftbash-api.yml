@@ -31,7 +31,7 @@ jobs:
 
       - name: Remove web-client folder
         run: |
-          rmdir /s /q packages\web-client
+          Remove-Item -Path "packages\web-client" -Recurse -Force
 
       - name: npm install, build, and test
         run: |
