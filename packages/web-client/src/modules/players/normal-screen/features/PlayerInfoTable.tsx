@@ -91,10 +91,14 @@ export const PlayerInfoTable = (props: Props) => {
                                 {(player.seasonTotals?.turnovers / player.seasonTotals?.gamesPlayed).toFixed(1)}
                             </td>
                             <td style={styles.tableDataStatistic}>
-                                {`${(100 * player.seasonTotals?.fieldGoalPercentage).toFixed(1)}`}
+                                {`${(
+                                    100 * player.seasonTotals?.fieldGoalsMade
+                                    / player.seasonTotals?.fieldGoalsAttempted
+                                ).toFixed(1)}`}
                             </td>
                             <td style={styles.tableDataStatistic}>
-                                {`${(100 * player.seasonTotals?.freeThrowPercentage).toFixed(1)}`}
+                                {`${(100 * player.seasonTotals?.freeThrowsMade /
+                                    player.seasonTotals?.freeThrowsAttempted).toFixed(1)}`}
                             </td>
                             <td style={styles.tableDataStatistic}>
                                 {(player.seasonTotals?.threesMade / player.seasonTotals?.gamesPlayed).toFixed(1)}

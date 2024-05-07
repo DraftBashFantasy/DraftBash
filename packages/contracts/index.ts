@@ -1,16 +1,13 @@
-export type {
-    IBcryptService,
-    IDatabaseConnection,
-    IJwtAuthTokensService,
-    IWebSocketAdapter,
-} from './src/adapters';
+export type { IBcryptService, IDatabaseConnection, IJwtAuthTokensService, IWebSocketAdapter } from './src/adapters';
 export type { DraftSettingsDTO } from './src/rest-api/shared';
+export type { CreateMockDraftRequest, UpdateMockDraftRequest, CreateUserRequest } from './src/rest-api/requests';
 export type {
-    CreateMockDraftRequest,
-    UpdateMockDraftRequest,
-    CreateUserRequest,
-} from './src/rest-api/requests';
-export type { UserResponse, MockDraftResponse, PlayerResponse, GamelogResponse } from './src/rest-api/responses';
+    UserResponse,
+    MockDraftResponse,
+    PlayerResponse,
+    GamelogResponse,
+    PlayerGameProjectionsResponse,
+} from './src/rest-api/responses';
 export type {
     ICreateMockDraftsUseCase,
     IDeleteMockDraftsUseCase,

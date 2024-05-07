@@ -29,7 +29,7 @@ export const PlayerModalHeader = (props: Props) => {
             <div style={styles.leftItem}>
                 <img
                     style={styles.playerPicture}
-                    src={`https://cdn.nba.com/headshots/nba/latest/260x190/${props.player.nbaApiPlayerId}.png`}
+                    src={`https://cdn.nba.com/headshots/nba/latest/260x190/${props.player.playerId}.png`}
                     alt={`${props.player.firstName} ${props.player.lastName}`}
                 />
                 <img
@@ -84,7 +84,7 @@ export const PlayerModalHeader = (props: Props) => {
                                 fontSize: '20px',
                             }}
                         >
-                            {props.player.seasonProjections.pointsLeagueRank}
+                            {props.player.seasonProjections.pointsLeagueRanking}
                         </p>
                     </div>
                     <div>

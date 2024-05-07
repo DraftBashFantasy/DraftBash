@@ -1,15 +1,28 @@
+
+
 export type GamelogResponse = {
     season: number;
-    date: string;
-    team: string;
+    dateUTC: string;
+    playerTeam: {
+        teamId: string;
+        name: string;
+        abbreviation: string;
+        location: string;
+    };
     isHomeGame: boolean;
-    opponentTeam: string;
+    opposingTeam: {
+        teamId: string;
+        name: string;
+        abbreviation: string;
+        location: string;
+    };
     playerTeamScore: number;
-    opponentTeamScore: number;
+    opposingTeamScore: number;
     playerId: number;
     position: string;
     isStarter: boolean;
-    minutesPlayed: number;
+    isActive: boolean;
+    minutes: number;
     points: number;
     fieldGoalsMade: number;
     fieldGoalsAttempted: number;
@@ -17,9 +30,9 @@ export type GamelogResponse = {
     threesAttempted: number;
     freeThrowsMade: number;
     freeThrowsAttempted: number;
-    offensiveRebounds: number;
-    defensiveRebounds: number;
-    rebounds: number;
+    reboundsOffensive: number;
+    reboundsDefensive: number;
+    reboundsTotal: number;
     assists: number;
     steals: number;
     blocks: number;

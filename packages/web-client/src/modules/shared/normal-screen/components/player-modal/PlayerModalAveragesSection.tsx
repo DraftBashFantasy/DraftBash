@@ -47,13 +47,21 @@ export const PlayerModalAveragesSection = (props: Props) => {
                             {(props.player.seasonTotals?.turnovers / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
                         </td>
                         <td style={styles.tableData}>
-                            {`${(100 * props.player.seasonTotals?.fieldGoalPercentage).toFixed(1)}`}
+                            {`${(
+                                (100 * props.player.seasonTotals?.fieldGoalsMade) /
+                                props.player.seasonTotals.fieldGoalsAttempted
+                            ).toFixed(1)}%`}
                         </td>
                         <td style={styles.tableData}>
-                            {`${(100 * props.player.seasonTotals?.freeThrowPercentage).toFixed(1)}`}
+                            {`${(
+                                (100 * props.player.seasonTotals?.freeThrowsMade) /
+                                props.player.seasonTotals?.freeThrowsAttempted
+                            ).toFixed(1)}%`}
                         </td>
                         <td style={styles.tableData}>
-                            {(props.player.seasonTotals?.threesMade / props.player.seasonTotals?.gamesPlayed).toFixed(1)}
+                            {(props.player.seasonTotals?.threesMade / props.player.seasonTotals?.gamesPlayed).toFixed(
+                                1
+                            )}
                         </td>
                     </tr>
                 </tbody>

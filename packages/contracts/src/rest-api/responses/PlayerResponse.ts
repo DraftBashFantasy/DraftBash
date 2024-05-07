@@ -1,6 +1,8 @@
+import { PlayerGameProjectionsResponse } from "./PlayerGameProjectionsResponse";
+
+
 export type PlayerResponse = {
-    playerId: number;
-    nbaApiPlayerId: number;
+    playerId: string;
     firstName: string;
     lastName: string;
     fantasyPositions: string[];
@@ -12,13 +14,15 @@ export type PlayerResponse = {
     recentNews: string;
     jerseyNumber: number;
     team: {
+        teamId: string;
         name: string;
         abbreviation: string;
         location: string;
-    }
+    };
+    currentWeekProjections: PlayerGameProjectionsResponse[];
     seasonProjections: {
-        pointsLeagueRank: number;
-        categoryLeagueRank: number;
+        pointsLeagueRanking: number;
+        categoryLeagueRanking: number;
         points: number;
         rebounds: number;
         assists: number;
@@ -30,7 +34,7 @@ export type PlayerResponse = {
         threesMade: number;
         minutes: number;
         gamesPlayed: number;
-    },
+    };
     seasonTotals: {
         points: number;
         rebounds: number;
@@ -38,12 +42,14 @@ export type PlayerResponse = {
         steals: number;
         blocks: number;
         turnovers: number;
-        fieldGoalPercentage: number;
-        freeThrowPercentage: number;
+        fieldGoalsAttempted: number;
+        fieldGoalsMade: number;
+        freeThrowsAttempted: number;
+        freeThrowsMade: number;
         threesMade: number;
         minutes: number;
         gamesPlayed: number;
-    },
+    };
     addCount: number;
     dropCount: number;
 };

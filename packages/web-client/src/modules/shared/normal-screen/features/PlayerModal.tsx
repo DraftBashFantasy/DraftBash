@@ -3,6 +3,7 @@ import { PlayerModalHeader } from '../components/player-modal/PlayerModalHeader'
 import { PlayerModalAveragesSection } from '../components/player-modal/PlayerModalAveragesSection';
 import { PlayerModalNews } from '../components/player-modal/PlayerModalNews';
 import { PlayerModalGamelogs } from '../components/player-modal/PlayerModalGamelogs';
+import { PlayerWeeklyProjections } from '../components/player-modal/PlayerWeeklyProjections';
 import { GamelogResponse, PlayerResponse } from '../../../../../..//contracts';
 import { useFetchPlayerGamelogs } from '../../../players';
 
@@ -13,7 +14,6 @@ interface Props {
 export const PlayerModal = (props: Props) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [playerGamelogs, setPlayerGamelogs] = useState<GamelogResponse[]>([]);
     const { gamelogs, fetchGamelogs } = useFetchPlayerGamelogs();
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export const PlayerModal = (props: Props) => {
                 <div style={styles.playerPictureFrame}>
                     <img
                         style={styles.playerPicture}
-                        src={`https://cdn.nba.com/headshots/nba/latest/260x190/${props.player.nbaApiPlayerId}.png`}
+                        src={`https://cdn.nba.com/headshots/nba/latest/260x190/${props.player.playerId}.png`}
                         alt={`${props.player.firstName} ${props.player.lastName}`}
                     />
                 </div>
@@ -59,6 +59,7 @@ export const PlayerModal = (props: Props) => {
                         <PlayerModalHeader player={props.player} />
                         <PlayerModalAveragesSection player={props.player} />
                         <PlayerModalNews />
+                        <PlayerWeeklyProjections playersProjections={props.player.currentWeekProjections} />
                         <PlayerModalGamelogs gamelogs={gamelogs} />
                     </div>
                 </div>

@@ -1,16 +1,15 @@
 import React from 'react';
-import { GamelogResponse } from '../../../../../../../contracts';
+import { PlayerGameProjectionsResponse } from '../../../../../../../contracts';
 
 interface Props {
-    gamelogs: GamelogResponse[];
+    playersProjections: PlayerGameProjectionsResponse[];
 }
 
-export const PlayerModalGamelogs = (props: Props) => {
+export const PlayerWeeklyProjections = (props: Props) => {
     const formatDate = (date: string | null) => {
         if (!date) {
             return '';
-        }
-        else {
+        } else {
             const dateArray = date.split('-');
             const month = dateArray[1];
             const day = dateArray[2].slice(0, 2);
@@ -33,11 +32,6 @@ export const PlayerModalGamelogs = (props: Props) => {
     };
 
     // Define color ranges for each stat
-    const minutesPlayedRanges: [number, number, string][] = [
-        [0, 24, 'red'],
-        [24, 30, 'var(--gold)'],
-        [30, Infinity, 'var(--brightGreen)'],
-    ];
     const pointsRanges: [number, number, string][] = [
         [0, 11, 'red'],
         [11, 20, 'var(--gold)'],
@@ -82,14 +76,13 @@ export const PlayerModalGamelogs = (props: Props) => {
     return (
         <div style={styles.container}>
             <div style={styles.header}>
-                <h5 style={styles.title}>Gamelog</h5>
+                <h5 style={styles.title}>Current Week Projections</h5>
             </div>
             <table style={styles.table}>
                 <thead>
                     <tr>
                         <th style={styles.tableHeader}>DATE</th>
                         <th style={styles.tableHeader}>OPP</th>
-                        <th style={styles.tableHeader}>MIN</th>
                         <th style={styles.tableHeader}>PTS</th>
                         <th style={styles.tableHeader}>REB</th>
                         <th style={styles.tableHeader}>AST</th>
@@ -101,65 +94,60 @@ export const PlayerModalGamelogs = (props: Props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.gamelogs.map((gamelog, index) =>
-                        gamelog.isActive && gamelog.minutes > 0 ? (
-                            <tr key={index}>
-                                <td style={getCellStyle(formatDate(gamelog.dateUTC), [])}>
-                                    {formatDate(gamelog.dateUTC)}
-                                </td>
-                                <td style={getCellStyle(gamelog.opposingTeam?.abbreviation, [])}>
-                                    {gamelog.opposingTeam?.abbreviation}
-                                </td>
-                                <td style={getCellStyle(gamelog.minutes, minutesPlayedRanges)}>
-                                    {gamelog.minutes.toFixed(1)}
-                                </td>
-                                <td style={getCellStyle(gamelog.points, pointsRanges)}>{gamelog.points}</td>
-                                <td style={getCellStyle(gamelog.reboundsTotal, reboundsRanges)}>
-                                    {gamelog.reboundsTotal}
-                                </td>
-                                <td style={getCellStyle(gamelog.assists, assistsRanges)}>{gamelog.assists}</td>
-                                <td style={getCellStyle(gamelog.steals, stealsRanges)}>{gamelog.steals}</td>
-                                <td style={getCellStyle(gamelog.blocks, blocksRanges)}>{gamelog.blocks}</td>
-                                <td style={getCellStyle(gamelog.threesMade, threePointersRanges)}>
-                                    {gamelog.threesMade}
-                                </td>
-                                <td
-                                    style={getCellStyle(
-                                        gamelog.fieldGoalsMade / gamelog.fieldGoalsAttempted,
-                                        fieldGoalPercentageRanges
-                                    )}
-                                >
-                                    {gamelog.fieldGoalsAttempted !== 0
-                                        ? ((100 * gamelog.fieldGoalsMade) / gamelog.fieldGoalsAttempted).toFixed(1)
-                                        : '-'}
-                                </td>
-                                <td
-                                    style={getCellStyle(
-                                        gamelog.freeThrowsMade / gamelog.freeThrowsAttempted,
-                                        freeThrowPercentageRanges
-                                    )}
-                                >
-                                    {gamelog.freeThrowsAttempted !== 0
-                                        ? ((100 * gamelog.freeThrowsMade) / gamelog.freeThrowsAttempted).toFixed(1)
-                                        : '-'}
-                                </td>
-                            </tr>
-                        ) : (
-                            <tr key={index}>
-                                <td style={styles.tableData}>{formatDate(gamelog.dateUTC)}</td>
-                                <td style={styles.tableData}>{gamelog.opposingTeam?.abbreviation}</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                                <td style={styles.tableData}>-</td>
-                            </tr>
-                        )
-                    )}
+                    {props.playersProjections.map((playerProjections, index) => (
+                        <tr key={index}>
+                            <td style={getCellStyle(formatDate(playerProjections.dateUTC), [])}>
+                                {formatDate(playerProjections.dateUTC)}
+                            </td>
+                            <td style={getCellStyle(playerProjections.opposingTeam?.abbreviation, [])}>
+                                {playerProjections.opposingTeam?.abbreviation}
+                            </td>
+                            <td style={getCellStyle(playerProjections.points, pointsRanges)}>
+                                {playerProjections.points.toFixed(1)}
+                            </td>
+                            <td style={getCellStyle(playerProjections.rebounds, reboundsRanges)}>
+                                {playerProjections.rebounds.toFixed(1)}
+                            </td>
+                            <td style={getCellStyle(playerProjections.assists, assistsRanges)}>
+                                {playerProjections.assists.toFixed(1)}
+                            </td>
+                            <td style={getCellStyle(playerProjections.steals, stealsRanges)}>
+                                {playerProjections.steals.toFixed(1)}
+                            </td>
+                            <td style={getCellStyle(playerProjections.blocks, blocksRanges)}>
+                                {playerProjections.blocks.toFixed(1)}
+                            </td>
+                            <td style={getCellStyle(playerProjections.threesMade, threePointersRanges)}>
+                                {playerProjections.threesMade.toFixed(1)}
+                            </td>
+                            <td
+                                style={getCellStyle(
+                                    playerProjections.fieldGoalsMade / playerProjections.fieldGoalsAttempted,
+                                    fieldGoalPercentageRanges
+                                )}
+                            >
+                                {playerProjections.fieldGoalsAttempted !== 0
+                                    ? (
+                                          (100 * playerProjections.fieldGoalsMade) /
+                                          playerProjections.fieldGoalsAttempted
+                                      ).toFixed(1)
+                                    : '-'}
+                            </td>
+                            <td
+                                style={getCellStyle(
+                                    playerProjections.freeThrowsMade / playerProjections.freeThrowsAttempted,
+                                    freeThrowPercentageRanges
+                                )}
+                            >
+                                {playerProjections.freeThrowsAttempted !== 0
+                                    ? (
+                                          (100 * playerProjections.freeThrowsMade) /
+                                          playerProjections.freeThrowsAttempted
+                                      ).toFixed(1)
+                                    : '-'}
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
