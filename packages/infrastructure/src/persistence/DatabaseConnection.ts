@@ -3,7 +3,7 @@ import { configDotenv } from 'dotenv';
 import { Pool } from 'pg';
 import { IDatabaseConnection } from '../../../contracts';
 
-configDotenv(); // Load environment variables from .env file
+configDotenv(); // Load environment variables
 
 export class DatabaseConnection implements IDatabaseConnection {
     private pool: Pool;
