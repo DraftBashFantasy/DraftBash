@@ -6,6 +6,7 @@ export type PlayerResponse = {
     firstName: string;
     lastName: string;
     fantasyPositions: string[];
+    position: string;
     age: number;
     height: number;
     weight: number;

@@ -70,7 +70,7 @@ export class DraftSettings {
         this.teamSize = teamSize;
         this.orderType = settings.orderType;
         this.scoringType = settings.scoringType;
-        this.teamCount = new IntegerInterval('teamCount', settings.teamCount, 8, 14);
+        this.teamCount = new IntegerInterval('teamCount', settings.teamCount, 4, 14);
         this.pointguardSlots = new IntegerInterval('pointguardSlots', settings.pointguardSlots, 0, 1);
         this.shootingguardSlots = new IntegerInterval('shootingguardSlots', settings.shootingguardSlots, 0, 1);
         this.guardSlots = new IntegerInterval('guardSlots', settings.guardSlots, 0, 1);

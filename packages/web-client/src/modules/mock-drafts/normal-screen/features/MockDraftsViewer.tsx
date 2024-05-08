@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '../../../shared';
+import { MockDraftResponse } from '../../../../../../contracts';
 
 interface Props {
     slideDirection: string | null;
-    mockDraft: unknown;
+    mockDraft: MockDraftResponse | null;
 }
 
 export const MockDraftsViewer = (props: Props) => {
@@ -15,6 +16,7 @@ export const MockDraftsViewer = (props: Props) => {
             setIsSliding(true);
             setTimeout(() => setIsSliding(false), 250);
         }
+        console.log(props.mockDraft?.draftSettings.orderType);
     }, [mockDraft]);
 
     let transformValue = '0';
@@ -37,16 +39,13 @@ export const MockDraftsViewer = (props: Props) => {
             <h2 style={styles.header}>Your draft</h2>
             <ul style={{ ...styles.details, ...slidingStyles }}>
                 <li style={styles.detail}>
-                    Draft Type: <b style={styles.detailValue}>Snake</b>
+                    Draft Type: <b style={styles.detailValue}>{mockDraft?.draftSettings.orderType}</b>
                 </li>
                 <li style={styles.detail}>
-                    Scoring Type: <b style={styles.detailValue}>points</b>
+                    Scoring Type: <b style={styles.detailValue}>{mockDraft?.draftSettings.scoringType}</b>
                 </li>
                 <li style={styles.detail}>
-                    Team count: <b style={styles.detailValue}>8</b>
-                </li>
-                <li style={styles.detail}>
-                    Status: <b style={styles.status}>not started</b>
+                    Team count: <b style={styles.detailValue}>{mockDraft?.draftSettings.teamCount}</b>
                 </li>
             </ul>
             <Button style={styles.enterButton} handleOnClick={() => {}}>

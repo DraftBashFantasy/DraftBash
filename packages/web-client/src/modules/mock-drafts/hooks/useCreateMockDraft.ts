@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { MockDraft } from '../../../../../business/src/value-objects';
 import { CreateMockDraftRequest } from '../../../../../contracts';
 import { DraftSettings } from '../../../../../business/src/value-objects';
+import { useNavigate } from 'react-router-dom';
 
 export const useCreateMockDraft = () => {
     const [createMockDraftError, setMockDraftError] = useState<string | null>(null);
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleCreateMockDraft = async (settings: CreateMockDraftRequest) => {
         try {
@@ -41,9 +42,7 @@ export const useCreateMockDraft = () => {
                 setMockDraftError(errorData.error);
             } else {
                 const data = await response.json();
-                const draftId = data.draftId;
-                console.log(draftId);
-                // navigate('/');
+                navigate('/mock-drafts');
             }
         } catch (error: any) {
             console.log(error)

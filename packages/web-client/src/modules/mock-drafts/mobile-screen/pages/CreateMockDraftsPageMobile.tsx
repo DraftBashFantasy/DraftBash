@@ -3,12 +3,13 @@ import { DraftSettingMobile } from "../components/DraftSetting";
 import { RosterSetting } from "../components/RosterSetting";
 import { useCreateMockDraft } from "../../hooks/useCreateMockDraft";
 import { useAuth } from "../../../shared";
+import { useNavigate } from 'react-router-dom';
 
 
 export function CreateMockDraftsPageMobile() {
+    const navigate = useNavigate();
     const { handleCreateMockDraft } = useCreateMockDraft();
     const { user } = useAuth();
-
     const [orderType, setOrderType] = useState('Snake');
     const [scoringType, setScoringType] = useState('Points');
     const [teamCount, setTeamCount] = useState(10);
@@ -43,6 +44,7 @@ export function CreateMockDraftsPageMobile() {
                     benchSlots: benchSlots
                 },
             });
+            navigate('/mock-drafts');
         }
     };
 
