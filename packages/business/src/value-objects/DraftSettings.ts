@@ -50,7 +50,7 @@ export class DraftSettings {
         if (settings.pickTimeSeconds == null) {
             this.pickTimeSeconds = null;
         } else {
-            this.pickTimeSeconds = new IntegerInterval('pickTimeSeconds', settings.pickTimeSeconds, 30, 120);
+            this.pickTimeSeconds = new IntegerInterval('pickTimeSeconds', settings.pickTimeSeconds, 30, 180);
         }
         const teamSize = settings.teamCount
             + settings.benchSlots
