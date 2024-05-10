@@ -11,6 +11,7 @@ export const useCreateMockDraft = () => {
 
     const handleCreateMockDraft = async (settings: CreateMockDraftRequest) => {
         try {
+            console.log(settings)
             const mockdraft = new MockDraft(settings.scheduledByUserId, new DraftSettings(settings.draftSettings));
             const response = await fetch((import.meta as any).env.VITE_REACT_API_URL + '/mock-drafts', {
                 method: 'POST',
@@ -41,7 +42,6 @@ export const useCreateMockDraft = () => {
                 const errorData = await response.json();
                 setMockDraftError(errorData.error);
             } else {
-                const data = await response.json();
                 navigate('/mock-drafts');
             }
         } catch (error: any) {
