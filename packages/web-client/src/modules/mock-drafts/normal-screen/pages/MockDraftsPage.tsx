@@ -18,7 +18,7 @@ export function MockDraftsPage() {
     const { user } = useAuth();
 
     useEffect(() => {
-        // Assuming you have an API endpoint to fetch user drafts by userId
+
         fetch((import.meta as any).env.VITE_REACT_API_URL + `/users/${user?.userId}/mock-drafts`)
             .then((response) => {
                 if (!response.ok) {
