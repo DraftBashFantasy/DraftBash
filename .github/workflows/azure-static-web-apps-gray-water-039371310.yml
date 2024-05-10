@@ -17,6 +17,17 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Delete existing .env file if exists
+        run: |
+            rm packages/web-client/.env
+      - name: Set up environment variables
+        run: |
+          echo "VITE_REACT_API_URL=https://draftbashfantasysports-api.azurewebsites.net/api/v1" > packages/web-client/.env
+          echo "VITE_REACT_PLAYERS_API_URL=https://draftbash-nba-players.azurewebsites.net/api/v1" >> packages/web-client/.env
+      - name: Install dependencies and build client
+        run: |
+          npm install
+          npm run build:client
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
