@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { MockDraftResponse } from '../../../../../../contracts';
 import { useAuth } from '../../../shared';
 
-
+// Page containing the mock drafts a user has.
 export function MockDraftsPage() {
     const navigate = useNavigate();
     const [isLeftArrowHovered, setLeftArrowHovered] = useState(false);
