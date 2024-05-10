@@ -46,7 +46,7 @@ const styles = {
         height: '40px',
         justifyContent: 'space-between',
         borderBottom: '2px solid var(--brightBlack)',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     title: {
         color: 'var(--silver)',

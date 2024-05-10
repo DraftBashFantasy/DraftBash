@@ -17,7 +17,7 @@ expressApp.use(
 );
 
 expressApp.use(express.json());
-expressApp.use(setCache);
+//expressApp.use(setCache); // Uncomment this line to enable caching
 
 expressApp.use('/api/v1/users', usersRouter);
 expressApp.use('/api/v1/mock-drafts', mockDraftsRouter);

@@ -12,8 +12,8 @@ export class GetUserMockDraftsUseCase implements IGetUserMockDraftsUseCase {
         this.usersRepository = usersRepository;
     }
 
-    public async getUserMockDrafts(draftId: number): Promise<MockDraftResponse[]> {
-        const mockDraftEntities: MockDraftEntity[] = await this.mockDraftsRepository.getUserMockDrafts(draftId);
+    public async getUserMockDrafts(userId: number): Promise<MockDraftResponse[]> {
+        const mockDraftEntities: MockDraftEntity[] = await this.mockDraftsRepository.getUserMockDrafts(userId);
 
         const mockDraftResponses: MockDraftResponse[] = await Promise.all(
             mockDraftEntities.map(async (mockDraftEntity) => {

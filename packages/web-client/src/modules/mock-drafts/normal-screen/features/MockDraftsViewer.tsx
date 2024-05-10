@@ -16,7 +16,6 @@ export const MockDraftsViewer = (props: Props) => {
             setIsSliding(true);
             setTimeout(() => setIsSliding(false), 250);
         }
-        console.log(props.mockDraft?.draftSettings.orderType);
     }, [mockDraft]);
 
     let transformValue = '0';
