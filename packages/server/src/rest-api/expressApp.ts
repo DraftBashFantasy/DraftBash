@@ -17,7 +17,7 @@ expressApp.use(
 );
 
 expressApp.use(express.json());
-//expressApp.use(setCache); // Uncomment this line to enable caching
+//expressApp.use(setCache);
 
 expressApp.use('/api/v1/users', usersRouter);
 expressApp.use('/api/v1/mock-drafts', mockDraftsRouter);
@@ -26,5 +26,5 @@ expressApp.use('/api/v1/leagues', leaguesRouter);
 
 
 expressApp.get('/', (req, res) => {
-    res.send("The Draftbash API");
+    res.send("The Draftbash api");
 });

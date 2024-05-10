@@ -7,6 +7,7 @@ import { useFetchPlayers } from '../hooks/useFetchPlayers';
 import { useEffect, useState } from 'react';
 
 
+// Displays players
 export const PlayersPage = () => {
 
     const { players } = useFetchPlayers();
