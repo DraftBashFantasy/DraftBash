@@ -51,8 +51,8 @@ export const FAQPage: React.FC = () => {
                 <AccordionDetails>
                     <Typography style={styles.bodyText}>
                         There are two scoring types we provide: <br />  <br />
-                        <strong>Points</strong> - In Points scoring, players accumulate fantasy points based on their in-game stats. Each statistical category (e.g., points, rebounds, assists, etc.) is assigned a specific point value, and a player's fantasy score is the sum of these points. <br />  <br />
-                        <strong>Category</strong> - In Categories scoring, your team competes against another team in specific statistical categories (like points, rebounds, assists, etc.), and the winner is determined by who wins the most categories at the end of the week.
+                        <strong>Points</strong> -In Points scoring, players accumulate fantasy points based on their in-game stats. Each statistical category (e.g., points, rebounds, assists, etc.) is assigned a specific point value, and a player's fantasy score is the sum of these points. <br />  <br />
+                        <strong>Category</strong> -In Categories scoring, your team competes against another team in specific statistical categories (like points, rebounds, assists, etc.), and the winner is determined by who wins the most categories at the end of the week.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
