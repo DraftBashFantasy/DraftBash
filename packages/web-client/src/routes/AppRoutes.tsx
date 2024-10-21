@@ -6,8 +6,9 @@ import { CreateMockDraftsPage, MockDraftsPage } from '../modules/mock-drafts';
 import { PageLayout } from '../modules/shared';
 import { HomePage } from '../modules/home/normal-screen/HomePage';
 import { PlayersPage } from '../modules/players';
+import { FAQPage } from '../modules/home/normal-screen/features/FAQPage';
 
-export const AppRoutes= () => {
+export const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/login" element={<LoginPage />} />
@@ -24,6 +25,12 @@ export const AppRoutes= () => {
                 path="/mock-drafts/*"
                 element={<ProtectedRoute path="/" element={<MockDraftsPage />} layout={<PageLayout />} />}
             />
+            {/* Corrected path for FAQ page */}
+            <Route
+                path="/faq" // Changed from "/FAQPage/*" to "/faq"
+                element={<ProtectedRoute path="/" element={<FAQPage />} layout={<PageLayout />} />}
+            />
+            {/* Default route */}
             <Route path="/*" element={<ProtectedRoute path="/" element={<HomePage />} layout={<PageLayout />} />} />
         </Routes>
     );
