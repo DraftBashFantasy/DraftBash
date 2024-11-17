@@ -35,6 +35,12 @@ export function HomePage() {
                 FAQ
             </a>
 
+            {/* Mock Draft Text above LeaguesViewer */}
+            <div style={styles.mockDraftTextContainer}>
+                <h2 style={styles.mockDraftText}>Mock Draft</h2>
+            </div>
+
+            {/* Chevron Arrows for Slide */}
             <TbChevronCompactLeft
                 style={{ ...styles.leftArrow, opacity: isLeftArrowHovered ? 0.5 : 1 } as React.CSSProperties}
                 onMouseEnter={() => setLeftArrowHovered(true)}
@@ -51,9 +57,13 @@ export function HomePage() {
                 onMouseLeave={() => setRightArrowHovered(false)}
                 onClick={incrementMockDrafts}
             />
+
+            {/* Suggestion Text */}
             <p style={styles.createMockDraftSuggestion as React.CSSProperties}>
                 Need practice? Use mock drafts.
             </p>
+
+            {/* Button for Mock Drafts */}
             <Button
                 style={styles.createMockDraftButton}
                 handleOnClick={() => {
@@ -94,6 +104,9 @@ const styles = {
     createMockDraftSuggestion: {
         textAlign: 'center',
         marginTop: '15px',
+        fontSize: '18px',
+        fontWeight: 'bold',
+        color: 'var(--gold)',
     },
     faqTab: {
         position: 'absolute',
@@ -106,5 +119,17 @@ const styles = {
         fontWeight: 'bold',
         borderRadius: '5px',
         cursor: 'pointer',
+    },
+    // Mock Draft Text Styling
+    mockDraftTextContainer: {
+        textAlign: 'center',
+        marginTop: '-50px', // Reduced margin-top to move the text higher
+    },
+    mockDraftText: {
+        fontSize: '48px', // Increased font size for better visibility
+        fontWeight: 'bold',
+        color: 'var(--gold)', // Color for the text
+        textShadow: '2px 2px 6px rgba(0, 0, 0, 0.5)',  // Added a little more shadow
+        letterSpacing: '4px',  // Increased letter spacing for better readability
     },
 };

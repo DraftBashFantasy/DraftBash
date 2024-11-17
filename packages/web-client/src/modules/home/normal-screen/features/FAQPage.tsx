@@ -5,9 +5,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export const FAQPage: React.FC = () => {
     return (
         <div style={styles.container}>
-            <Typography variant="h4" gutterBottom align="center">
-                Frequently Asked Questions
-            </Typography>
+            <div style={styles.faqHeaderContainer}>
+                <Typography variant="h4" gutterBottom style={styles.faqHeader}>
+                    Frequently Asked Questions
+                </Typography>
+            </div>
 
             <Accordion style={styles.accordion}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} style={styles.accordionSummary}>
@@ -69,8 +71,6 @@ export const FAQPage: React.FC = () => {
                 </AccordionDetails>
             </Accordion>
         </div>
-
-            
     );
 };
 
@@ -82,6 +82,17 @@ const styles = {
         backgroundColor: '#f9f9f9',
         borderRadius: '8px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    },
+    faqHeaderContainer: {
+        textAlign: 'center',
+        marginBottom: '20px',
+    },
+    faqHeader: {
+        fontSize: '48px', // Larger font size
+        fontWeight: 'bold',
+        color: 'var(--gold)',  // Gold color for emphasis
+        textShadow: '2px 2px 6px rgba(0, 0, 0, 0.5)',  // Shadow for depth
+        letterSpacing: '4px',  // Letter spacing for clarity
     },
     accordion: {
         marginBottom: '20px',
