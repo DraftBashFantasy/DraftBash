@@ -7,6 +7,7 @@ import { PageLayout } from '../modules/shared';
 import { HomePage } from '../modules/home/normal-screen/HomePage';
 import { PlayersPage } from '../modules/players';
 import { FAQPage } from '../modules/home/normal-screen/features/FAQPage';
+import { AboutusPage } from '../modules/home/normal-screen/features/aboutus'; // Import the About Me page component
 
 export const AppRoutes = () => {
     return (
@@ -25,13 +26,15 @@ export const AppRoutes = () => {
                 path="/mock-drafts/*"
                 element={<ProtectedRoute path="/" element={<MockDraftsPage />} layout={<PageLayout />} />}
             />
-            {/* Corrected path for FAQ page */}
             <Route
-                path="/faq" // Changed from "/FAQPage/*" to "/faq"
+                path="/faq"
                 element={<ProtectedRoute path="/" element={<FAQPage />} layout={<PageLayout />} />}
             />
-            {/* Default route */}
+            <Route
+                path="/about-us" // New route for About Me page
+                element={<ProtectedRoute path="/" element={<AboutusPage />} layout={<PageLayout />} />}
+            />
             <Route path="/*" element={<ProtectedRoute path="/" element={<HomePage />} layout={<PageLayout />} />} />
         </Routes>
     );
-}
+};

@@ -35,6 +35,9 @@ export const Navbar = () => {
                 <Link to="/mock-drafts" style={styles.option} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                     Mock Drafts
                 </Link>
+                <Link to="/about-us" style={styles.option} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                    About us
+                </Link>
                 <FaSignOutAlt
                     style={styles.logout}
                     onClick={logout}
@@ -63,13 +66,13 @@ const styles = {
         color: 'transparent',
         textTransform: 'uppercase',
         letterSpacing: '2px',
-        background: 'linear-gradient(90deg, #ff6b6b, #f9a825, #ffde59)',  // Gradient effect
-        WebkitBackgroundClip: 'text',  // Ensure the gradient applies to text
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)',  // Subtle shadow for depth
+        background: 'linear-gradient(90deg, #ff6b6b, #f9a825, #ffde59)', // Gradient effect
+        WebkitBackgroundClip: 'text', // Ensure the gradient applies to text
+        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)', // Subtle shadow for depth
     },
     navLinksContainer: {
         display: 'flex',
-        gap: '20px',  // Space between links
+        gap: '20px', // Space between links
         alignItems: 'center', // Align logout and links
     },
     logout: {
